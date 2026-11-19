@@ -65,22 +65,36 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 .map-lesson-links{font-size:.85rem}
 .map-extra-points{padding-inline-start:1.2rem;margin:.4rem 0}.map-extra-points li{margin:.25rem 0}.map-coverage{padding:.45rem .7rem;border:1px solid var(--line);border-radius:8px}.map-coverage p{margin:.3rem 0 .05rem}
 .map-check{padding:.55rem .75rem;margin-top:.65rem;background:#f3f5ef;border-radius:8px}
-.map-diagram{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(5.2rem,.86fr) minmax(0,1fr);align-items:center;gap:clamp(.65rem,3.2vw,2.1rem);padding:clamp(.65rem,2vw,1.2rem);margin:.75rem 0;border:1px solid var(--line);border-radius:12px;background:#f4f6ee}
+.map-canvas-wrap{margin:.75rem 0}
+.map-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-bottom:.45rem}
+.map-toolbar button{font-size:.82rem;padding:.26rem .55rem}
+.map-zoom{font-size:.83rem;font-variant-numeric:tabular-nums;min-width:3rem;text-align:center}
+.map-scroll{height:auto;max-height:min(68vh,630px);overflow:auto;overscroll-behavior:contain;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:grab}
+.map-scroll.is-dragging{cursor:grabbing;user-select:none}
+.map-paper{position:relative;margin:auto;overflow:hidden}
+.map-diagram{position:absolute;inset:0 auto auto 0;inline-size:1120px;box-sizing:border-box;isolation:isolate;display:grid;grid-template-columns:1fr 130px 1fr;align-items:center;gap:25px;padding:24px 20px;transform-origin:top left;color:#183e34}
 .map-wires{position:absolute;inset:0;inline-size:100%;block-size:100%;pointer-events:none;z-index:-1;overflow:visible}
-.map-wires path{fill:none;stroke-width:2;stroke:var(--map-wire,#668b77)}
-.map-wires .map-wire-active{stroke:#195746;stroke-width:3.2}
-.map-side{display:grid;gap:.58rem;min-width:0}
-.map-center{display:grid;place-items:center;min-height:4.6rem;padding:.55rem;text-align:center;font-weight:750;line-height:1.35;background:#214f42;color:#fff;border-radius:12px;overflow-wrap:anywhere}
-.map-point{inline-size:100%;min-height:2.65rem;background:#fff;color:#1c4034;border:1px solid #729580;border-radius:8px;font-size:.87rem;line-height:1.35;font-weight:650;padding:.36rem .5rem;overflow-wrap:anywhere}
-.map-point span,.map-point-cue{display:block}.map-point-cue{font-size:.76rem;font-weight:500;margin-top:.15rem;color:#4d6259}
-.map-point[aria-pressed="true"]{background:#e0efde;border-color:#1b6049;box-shadow:inset 0 0 0 1px #1b6049}
-.map-side:last-child .map-point{color:#294663;border-color:#8199b4}
-.map-side:last-child .map-point span,.map-point-cue{display:block}.map-point-cue{font-size:.76rem;font-weight:500;margin-top:.15rem;color:#4d6259}
-.map-point[aria-pressed="true"]{background:#e4edf5;border-color:#365a7c;box-shadow:inset 0 0 0 1px #365a7c}
-.map-branch-hint{margin:.3rem 0 .6rem;font-size:.88rem;color:var(--muted)}
-.map-branches>li[hidden],.map-branch-hint[hidden]{display:none}
-@media(max-width:520px){.map-chapter{padding:.55rem .6rem}.map-diagram{padding:.5rem;gap:.62rem}.map-side{gap:.45rem}.map-point{font-size:.77rem;padding:.32rem .22rem;min-height:2.8rem}.map-center{font-size:.84rem;padding:.36rem}.map-point-cue{font-size:.69rem}}
-@media print{.map-diagram,.map-branch-hint{display:none}.map-branches>li[hidden]{display:list-item!important}}
+.map-wires path{fill:none;stroke:var(--map-wire,#318777);stroke-width:1.6}
+.map-wires .map-wire-detail{stroke-width:1.15}
+.map-side{display:grid;align-content:center;gap:18px;min-width:0}
+.map-group{display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:20px;align-items:center}
+.map-side-right .map-group{grid-template-columns:110px minmax(0,1fr)}
+.map-center{padding:.55rem;text-align:center;font-size:1.1rem;font-weight:750;line-height:1.35;background:#ffe987;border:2px solid #238474;color:#193f32;border-radius:7px;overflow-wrap:anywhere}
+.map-point{padding:.35rem .42rem;line-height:1.3;font-size:.93rem;font-weight:750;text-align:center;color:white;background:#147865;border-radius:6px;overflow-wrap:anywhere}
+.map-side-right .map-point{background:#2b6887}
+.map-leaves{display:grid;gap:.35rem;min-width:0}
+.map-leaf{background:#fff;border-block-end:1px solid #8eb8aa;padding:.07rem .22rem .24rem;font-size:.86rem;line-height:1.5;overflow-wrap:anywhere;cursor:text}
+.map-side-right .map-leaf{border-color:#91b7ca}
+.map-leaf p{margin:.08rem 0}
+.map-leaf strong,.map-leaf a{color:#215d50}
+.map-leaf a{cursor:pointer}
+.map-leaf ul{margin:.12rem 0 .1rem .45rem;padding-left:.66rem;border-left:1px solid #92b9ab;list-style:none}
+.map-leaf ul li{position:relative;padding-left:.14rem;margin:.15rem 0}
+.map-leaf ul li::before{position:absolute;content:"";left:-.67rem;top:.63em;width:.56rem;border-top:1px solid #92b9ab}
+.map-leaf-links{font-size:.8rem;cursor:auto}
+.map-branches[hidden]{display:none}
+@media(max-width:520px){.map-chapter{padding:.55rem .6rem}.map-scroll{max-height:58vh}}
+@media print{.map-canvas-wrap{display:none}.map-branches[hidden]{display:block!important}}
 </style>
 </head>
 <body>
@@ -125,8 +139,8 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 
 <section class="panel" id="maps">
 <h2>按大纲逐章复习</h2>
-<p>先看中心章名和两侧分支，点一个节点就能读该考点的规则和讲义。每章末尾有一道自测。</p>
-<p class="muted">按 2025 版一般业务大纲分节整理，另附 2026 年纪法知识。每章导图是复习主线。点分支可以看补充考点；章末「本章还要对照大纲补什么」标出尚未详细讲解的内容。</p>
+<p>从中心章名顺着连线读到小节和考点。用「适合宽度」看全章，用「100%」读正文，放大后可拖动空白处或滚动浏览。</p>
+<p class="muted">按 2025 版一般业务大纲分节整理，另附 2026 年纪法知识。考点与白话解释直接显示在图上。章末「本章还要对照大纲补什么」标出尚未详细讲解的内容。</p>
 <div class="controls" id="map-actions">
 <button type="button" class="secondary" id="expand-maps">展开全部章节</button>
 <button type="button" class="secondary" id="collapse-maps">收起全部章节</button>
@@ -1613,91 +1627,159 @@ timerButton.addEventListener("click", () => {
   updateTimer();
   interval = setInterval(updateTimer, 250);
 });
-// Short cues readable directly on the diagram, even with all branch details closed.
-const mapCues = {
-  "map-f1": ["融资方式 · 发行与流通", "IMF · 世界银行"],
-  "map-f2": ["央行工具 · 金融机构", "主板 · 科创板 · 创业板"],
-  "map-f3": ["谁通过发证券筹钱", "个人与机构", "券商 · 会计师 · 律师", "交易所 · 协会 · 中国结算", "投服中心 · 保护基金", "证监会依法监管"],
-  "map-f4": ["五种性质 · 五个特征", "注册制 · IPO · 配股", "价格优先 · 时间优先", "市盈率 · 市净率"],
-  "map-f5": ["发行主体 · 票息条款", "谁借钱 · 怎么发行", "市场转让 · 回购", "价格与收益率"],
-  "map-f6": ["开放封闭 · ETF 与 LOF", "认购 · 申购 · 赎回", "份额净值 · 基金费用", "管理 · 托管 · 监督", "定期报告 · 临时公告", "非公开募集", "项目运营 · 现金流"],
-  "map-f7": ["标的 · 对冲 · 杠杆", "统一规格 · 选择权", "自行约定 · 交换付款", "信用保护 · 结构化产品"],
-  "map-f8": ["识别 · 衡量 · 应对", "风险偏好 · 限额", "价格变动 · 敏感性", "对方违约", "卖不出去 · 筹不到钱", "系统或人员 · 声誉 · 战略", "授权 · 监测 · 整改"],
-  "map-l1": ["法律 · 规章 · 自律规则", "人数 · 出资 · 表决", "普通和有限合伙人", "公开发行 · 承销", "基金三方 · 财产独立", "保证金 · 每日结算", "准入 · 客户资产保护", "托管 · 接管 · 重组", "合格投资者 · 备案"],
-  "map-l2": ["三道防线 · 隔离墙", "净资本 · 风控指标", "母公司和子公司一起看", "了解 · 匹配 · 留痕", "尽职调查 · 异常报告", "系统、数据和外包责任", "权限 · 报告 · 恢复"],
-  "map-l3": ["按客户指令下单", "投资建议 · 研究报告", "并购重组 · 专业意见", "卖新证券 · 核查材料", "借钱买 · 借券卖", "券商自己承担盈亏", "按合同管理客户资产", "推荐挂牌 · 场外业务", "做市 · 资产证券化"],
-  "map-l4": ["擅自发行 · 欺诈发行", "内幕 · 操纵 · 擅自下单"],
-  "map-l5": ["合规 · 诚信 · 专业 · 稳健", "借业务输送不当利益", "诚信记录 · 证监会禁入", "公平 · 保密 · 利益冲突"],
-  "map-j1": ["金融工作 · 改革与规划", "八项规定 · 党纪处分", "政务处分 · 商业贿赂"]
-};
-
 function mountChapterDiagram(chapter) {
   const list = chapter.querySelector(".map-branches");
-  const branches = [...list.children];
+  const branches = [...list.querySelectorAll(".map-node")];
   const chapterTitle = chapter.querySelector(":scope > summary").textContent;
+  const wrap = element("div", "", "map-canvas-wrap");
+  const toolbar = element("div", "", "map-toolbar");
+  const viewport = element("div", "", "map-scroll");
+  viewport.tabIndex = 0;
+  viewport.setAttribute("role", "region");
+  viewport.setAttribute("aria-label", chapterTitle + "思维导图，可滚动查看");
+  const paper = element("div", "", "map-paper");
   const diagram = element("div", "", "map-diagram");
-  diagram.setAttribute("role", "group");
-  diagram.setAttribute("aria-label", chapterTitle + "思维导图");
   const namespace = "http://www.w3.org/2000/svg";
   const wires = document.createElementNS(namespace, "svg");
   wires.classList.add("map-wires");
   wires.setAttribute("aria-hidden", "true");
-  const left = element("div", "", "map-side");
-  const right = element("div", "", "map-side");
+  const left = element("div", "", "map-side map-side-left");
+  const right = element("div", "", "map-side map-side-right");
   const center = element("div", chapterTitle.replace(/^第[一二三四五六七八]章 |^补充 /, ""), "map-center");
-  const hint = element("p", "点任一分支查看考点。", "map-branch-hint");
+  const zoomLabel = element("output", "", "map-zoom");
+  zoomLabel.setAttribute("aria-label", "缩放比例");
+  let scale = 1;
+  let fit = true;
+  let drag;
 
-  const points = branches.map((branch, index) => {
-    const point = element("button", "", "map-point");
-    point.append(element("span", branch.querySelector("h4").textContent),
-      element("small", mapCues[chapter.id][index], "map-point-cue"));
-    point.type = "button";
-    branch.id = chapter.id + "-branch-" + (index + 1);
-    branch.hidden = true;
-    point.setAttribute("aria-controls", branch.id);
-    point.setAttribute("aria-pressed", "false");
-    (index < Math.ceil(branches.length / 2) ? left : right).append(point);
-    point.addEventListener("click", () => {
-      const isSelected = point.getAttribute("aria-pressed") === "true";
-      points.forEach((button, i) => {
-        const active = !isSelected && index === i;
-        button.setAttribute("aria-pressed", String(active));
-        branches[i].hidden = !active;
-      });
-      hint.hidden = !isSelected;
-      drawWires();
-    });
-    return point;
+  const groups = branches.map((branch, index) => {
+    const isLeft = index < Math.ceil(branches.length / 2);
+    const group = element("div", "", "map-group");
+    const title = element("h4", branch.querySelector("h4").textContent, "map-point");
+    const leaves = element("div", "", "map-leaves");
+    for (const child of branch.children) {
+      if (child.tagName === "H4" || child.classList.contains("map-lesson-links")) continue;
+      const parts = child.tagName === "UL" ? [...child.children] : [child];
+      for (const part of parts) {
+        const leaf = element("div", "", "map-leaf");
+        if (part.tagName === "LI") {
+          leaf.append(...[...part.childNodes].map(node => node.cloneNode(true)));
+        } else {
+          leaf.append(part.cloneNode(true));
+        }
+        leaves.append(leaf);
+      }
+    }
+    const originalLinks = branch.querySelector(".map-lesson-links");
+    if (originalLinks) {
+      const links = originalLinks.cloneNode(true);
+      links.classList.add("map-leaf", "map-leaf-links");
+      // Give the stock properties and features their own visible third-level branches.
+      for (const ref of originalLinks.querySelectorAll('a[href="#lesson-44"], a[href="#lesson-45"]')) {
+        const lesson = notes[Number(ref.hash.slice("#lesson-".length)) - 1];
+        const leaf = element("div", "", "map-leaf");
+        const terms = element("ul");
+        for (const term of lesson[7]) terms.append(element("li", term));
+        leaf.append(ref.cloneNode(true), terms);
+        leaves.append(leaf);
+      }
+      leaves.append(links);
+    }
+    group.append(...(isLeft ? [leaves, title] : [title, leaves]));
+    (isLeft ? left : right).append(group);
+    return {isLeft, title, leaves};
   });
-  diagram.append(wires, left, center, right);
-  list.before(diagram, hint);
+
+  function addWire(from, to, moveLeft, detail, bounds) {
+    const x0 = ((moveLeft ? from.left : from.right) - bounds.left) / scale;
+    const y0 = (from.top + from.height / 2 - bounds.top) / scale;
+    const x1 = ((moveLeft ? to.right : to.left) - bounds.left) / scale;
+    const y1 = (to.top + to.height / 2 - bounds.top) / scale;
+    const turn = (x0 + x1) / 2;
+    const wire = document.createElementNS(namespace, "path");
+    wire.setAttribute("d", "M " + x0 + " " + y0 + " C " + turn + " " + y0 +
+      ", " + turn + " " + y1 + ", " + x1 + " " + y1);
+    if (!moveLeft) wire.style.setProperty("--map-wire", "#548eab");
+    if (detail) wire.classList.add("map-wire-detail");
+    wires.append(wire);
+  }
 
   function drawWires() {
     const bounds = diagram.getBoundingClientRect();
-    if (bounds.width === 0 || bounds.height === 0) return;
     const root = center.getBoundingClientRect();
-    const originY = root.top + root.height / 2 - bounds.top;
     wires.replaceChildren();
-    for (const point of points) {
-      const box = point.getBoundingClientRect();
-      const isLeft = point.parentNode === left;
-      const x0 = (isLeft ? root.left : root.right) - bounds.left;
-      const x1 = (isLeft ? box.right : box.left) - bounds.left;
-      const y1 = box.top + box.height / 2 - bounds.top;
-      const turn = (x0 + x1) / 2;
-      const wire = document.createElementNS(namespace, "path");
-      wire.setAttribute("d", "M " + x0 + " " + originY + " C " + turn + " " + originY +
-        ", " + turn + " " + y1 + ", " + x1 + " " + y1);
-      if (isLeft) wire.style.setProperty("--map-wire", "#668b77");
-      else wire.style.setProperty("--map-wire", "#6f8cac");
-      wire.classList.toggle("map-wire-active", point.getAttribute("aria-pressed") === "true");
-      wires.append(wire);
+    for (const {isLeft, title, leaves} of groups) {
+      const titleBox = title.getBoundingClientRect();
+      addWire(root, titleBox, isLeft, false, bounds);
+      for (const leaf of leaves.children) addWire(titleBox, leaf.getBoundingClientRect(), isLeft, true, bounds);
     }
   }
 
-  const observer = new ResizeObserver(drawWires);
+  function layout() {
+    const width = diagram.offsetWidth;
+    const height = diagram.offsetHeight;
+    if (!width || !height || !viewport.clientWidth) return;
+    if (fit) scale = Math.min(1, (viewport.clientWidth - 2) / width);
+    diagram.style.transform = "scale(" + scale + ")";
+    paper.style.width = Math.ceil(width * scale) + "px";
+    paper.style.height = Math.ceil(height * scale) + "px";
+    zoomLabel.textContent = Math.round(scale * 100) + "%";
+    return true;
+  }
+
+  function zoom(action) {
+    const previous = scale;
+    const x = (viewport.scrollLeft + viewport.clientWidth / 2) / previous;
+    const y = (viewport.scrollTop + viewport.clientHeight / 2) / previous;
+    fit = action === "fit";
+    if (!fit) scale = action === "actual" ? 1 : Math.min(1.6, Math.max(.2, previous + action));
+    if (layout()) drawWires();
+    viewport.scrollLeft = x * scale - viewport.clientWidth / 2;
+    viewport.scrollTop = y * scale - viewport.clientHeight / 2;
+  }
+
+  for (const [label, action, name] of [
+    ["−", -.15, "缩小"], ["+", .15, "放大"], ["适合宽度", "fit"], ["100%", "actual"]
+  ]) {
+    const button = element("button", label, "secondary");
+    button.type = "button";
+    if (name) button.setAttribute("aria-label", name);
+    button.addEventListener("click", () => zoom(action));
+    toolbar.append(button);
+  }
+  toolbar.append(zoomLabel);
+  diagram.append(wires, left, center, right);
+  paper.append(diagram);
+  viewport.append(paper);
+  wrap.append(toolbar, viewport);
+  list.before(wrap);
+  list.hidden = true;
+
+  // Let touch screens use native scrolling; mouse users can also drag the blank canvas.
+  viewport.addEventListener("pointerdown", event => {
+    if (event.pointerType !== "mouse" || event.button !== 0 ||
+        event.target.closest(".map-leaf, a, button")) return;
+    if (viewport.scrollWidth <= viewport.clientWidth && viewport.scrollHeight <= viewport.clientHeight) return;
+    drag = {x: event.clientX + viewport.scrollLeft, y: event.clientY + viewport.scrollTop};
+    viewport.setPointerCapture(event.pointerId);
+    viewport.classList.add("is-dragging");
+  });
+  viewport.addEventListener("pointermove", event => {
+    if (!drag) return;
+    viewport.scrollLeft = drag.x - event.clientX;
+    viewport.scrollTop = drag.y - event.clientY;
+  });
+  viewport.addEventListener("lostpointercapture", () => {
+    drag = undefined;
+    viewport.classList.remove("is-dragging");
+  });
+
+  const observer = new ResizeObserver(() => {
+    if (layout()) drawWires();
+  });
+  observer.observe(viewport);
   observer.observe(diagram);
-  drawWires();
+  if (layout()) drawWires();
 }
 
 const mapChapters = [...document.querySelectorAll(".map-chapter")];
