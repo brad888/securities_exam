@@ -49,20 +49,53 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 .recall-item{margin-top:1rem}.recall-item p{margin:.3rem 0}.recall-item button{margin-top:.35rem}
 @media(max-width:760px){.layout{display:block}.contents{position:static;max-height:none}.contents #chapter-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}main{padding-top:1rem}}
 @media print{.layout{display:block}.contents,nav,.controls,button,.button{display:none} header{background:white;color:black;padding:0} header p{color:black} .card,.question{break-inside:avoid} body{background:white}}
+
+.map-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:.8rem;border:0;background:transparent;margin-bottom:1.1rem}
+.map-index>div{padding:.7rem .9rem;background:#f1f5ed;border-radius:10px;min-width:0}
+.map-index ul{margin:.3rem 0 0;padding-inline-start:1.25rem}
+.map-subject{margin:1.2rem 0}
+.map-chapter{padding:.65rem .85rem;border:1px solid var(--line);border-radius:12px;scroll-margin-top:1rem}
+.map-root{font-size:1.02rem;line-height:1.45}
+.map-chapter[open]>.map-root{background:var(--green);color:white;padding:.45rem .65rem;border-radius:7px}
+.map-focus{margin:.65rem 0;padding:.45rem .65rem;background:#eaf1e6;border-radius:7px}
+.map-branches{list-style:none;padding:0;margin:0}
+.map-node{min-width:0;background:#f1f5ee;border:1px solid var(--line);border-radius:10px;padding:.65rem .85rem}
+.map-node h4{font-size:1rem;color:var(--green);margin:.05rem 0}
+.map-node p,.map-check p{margin:.2rem 0}
+.map-lesson-links{font-size:.85rem}
+.map-extra-points{padding-inline-start:1.2rem;margin:.4rem 0}.map-extra-points li{margin:.25rem 0}.map-coverage{padding:.45rem .7rem;border:1px solid var(--line);border-radius:8px}.map-coverage p{margin:.3rem 0 .05rem}
+.map-check{padding:.55rem .75rem;margin-top:.65rem;background:#f3f5ef;border-radius:8px}
+.map-diagram{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(5.2rem,.86fr) minmax(0,1fr);align-items:center;gap:clamp(.65rem,3.2vw,2.1rem);padding:clamp(.65rem,2vw,1.2rem);margin:.75rem 0;border:1px solid var(--line);border-radius:12px;background:#f4f6ee}
+.map-wires{position:absolute;inset:0;inline-size:100%;block-size:100%;pointer-events:none;z-index:-1;overflow:visible}
+.map-wires path{fill:none;stroke-width:2;stroke:var(--map-wire,#668b77)}
+.map-wires .map-wire-active{stroke:#195746;stroke-width:3.2}
+.map-side{display:grid;gap:.58rem;min-width:0}
+.map-center{display:grid;place-items:center;min-height:4.6rem;padding:.55rem;text-align:center;font-weight:750;line-height:1.35;background:#214f42;color:#fff;border-radius:12px;overflow-wrap:anywhere}
+.map-point{inline-size:100%;min-height:2.65rem;background:#fff;color:#1c4034;border:1px solid #729580;border-radius:8px;font-size:.87rem;line-height:1.35;font-weight:650;padding:.36rem .5rem;overflow-wrap:anywhere}
+.map-point span,.map-point-cue{display:block}.map-point-cue{font-size:.76rem;font-weight:500;margin-top:.15rem;color:#4d6259}
+.map-point[aria-pressed="true"]{background:#e0efde;border-color:#1b6049;box-shadow:inset 0 0 0 1px #1b6049}
+.map-side:last-child .map-point{color:#294663;border-color:#8199b4}
+.map-side:last-child .map-point span,.map-point-cue{display:block}.map-point-cue{font-size:.76rem;font-weight:500;margin-top:.15rem;color:#4d6259}
+.map-point[aria-pressed="true"]{background:#e4edf5;border-color:#365a7c;box-shadow:inset 0 0 0 1px #365a7c}
+.map-branch-hint{margin:.3rem 0 .6rem;font-size:.88rem;color:var(--muted)}
+.map-branches>li[hidden],.map-branch-hint[hidden]{display:none}
+@media(max-width:520px){.map-chapter{padding:.55rem .6rem}.map-diagram{padding:.5rem;gap:.62rem}.map-side{gap:.45rem}.map-point{font-size:.77rem;padding:.32rem .22rem;min-height:2.8rem}.map-center{font-size:.84rem;padding:.36rem}.map-point-cue{font-size:.69rem}}
+@media print{.map-diagram,.map-branch-hint{display:none}.map-branches>li[hidden]{display:list-item!important}}
 </style>
 </head>
 <body>
 <header><div class="wrap">
 <p>证券行业一般业务水平评价测试</p>
 <h1>证券从业 · 10 天冲刺</h1>
-<p class="subtitle">从股票、债券、基金和证券业务的基本区别开始。先拿能看懂、能排除、一步能算的分，再做整卷找漏洞。</p>
+<p class="subtitle">用章节思维导图过一遍考纲，读讲义弄懂生词，再做小测和整卷找漏项。</p>
 </div></header>
 <nav aria-label="复习导航"><div class="wrap">
-<a href="#plan">10 天计划</a><a href="#notes">考点讲义</a><a href="#practice">站内练习</a><a href="#archive">历年回忆考点</a><a href="#mock">原创模拟卷</a><a href="#sources">资料来源</a>
+<a href="#plan">10 天计划</a><a href="#maps">章节思维导图</a><a href="#notes">考点讲义</a><a href="#practice">站内练习</a><a href="#archive">历年回忆考点</a><a href="#mock">原创模拟卷</a><a href="#sources">资料来源</a>
 </div></nav>
 <div class="wrap layout">
 <aside class="contents" aria-labelledby="contents-title">
 <h2 id="contents-title">复习目录</h2>
+<a href="#maps">章节思维导图</a>
 <a href="#plan">10 天计划</a>
 <a href="#words">常见词白话对照</a>
 <div id="chapter-links"></div>
@@ -73,10 +106,10 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <main>
 <section class="panel" id="plan">
 <h2>10 天怎么用</h2>
-<p class="intro">按两科都报、每天约 2 小时安排。只报一科时保留对应内容，把另一科的时间用于本科学习与错题复做。</p>
+<p class="intro">按两科都报、每天约 2 小时安排。先用<a href="#maps">章节思维导图</a>过主线，读不懂再展开讲义。只报一科时，把另一科的时间用于本科学习和重做错题。</p>
 <ol class="plan">
 <li><strong>第 1 天 · 市场和机构</strong>先看公司新发证券和投资者之间转卖有什么区别，再看银行、券商和交易所各做什么。做两科第 1 套小测各半，记下陌生词。<span class="day-links"><a href="#lesson-1">市场与机构</a></span></li>
-<li><strong>第 2 天 · 股票和发行</strong>看股东权利、分红送转、股票指数。法规记公开发行、代销和包销。<span class="day-links"><a href="#lesson-5">股票</a> · <a href="#lesson-18">公开发行</a> · <a href="#lesson-19">包销</a></span></li>
+<li><strong>第 2 天 · 股票和发行</strong>先看股票的性质和五个特征，再看股东权利、分红送转和股票指数。法规记公开发行、代销和包销。<span class="day-links"><a href="#lesson-44">股票</a> · <a href="#lesson-18">公开发行</a> · <a href="#lesson-19">包销</a></span></li>
 <li><strong>第 3 天 · 债券与公司法</strong>分清票面利率、当期收益率、到期收益率。法规记公司类型、发起人数和表决规则。<span class="day-links"><a href="#lesson-8">债券</a> · <a href="#lesson-20">公司法</a></span></li>
 <li><strong>第 4 天 · 基金和业务</strong>先弄清基金怎么投、谁保管、你怎么退出。再看券商是替客户下单、替客户决定怎么投，还是用自己的钱在投。<span class="day-links"><a href="#lesson-11">基金</a> · <a href="#lesson-26">业务规范</a></span></li>
 <li><strong>第 5 天 · 风险与合规</strong>看风险分类、分散投资和券商风控指标。练客户资金隔离、适当性和反洗钱。<span class="day-links"><a href="#lesson-14">风险与计算</a> · <a href="#lesson-22">机构管理</a> · <a href="#lesson-25">券商风控</a></span></li>
@@ -88,6 +121,505 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 </ol>
 <p><strong>每天只有 1 小时</strong>　20 分钟背「先拿分」，25 分钟练题，15 分钟复做昨天错题。第 7、8 天可分两段完成长卷。</p>
 <p><strong>考场的 120 分钟</strong>　建议先用约 85 分钟做有把握的题，25 分钟回看标记题，最后 10 分钟检查答题卡。先找题目要你选对还是选错。「可以」是允许，「应当」是必须做到。两科分别达到基本要求。</p>
+</section>
+
+<section class="panel" id="maps">
+<h2>按大纲逐章复习</h2>
+<p>先看中心章名和两侧分支，点一个节点就能读该考点的规则和讲义。每章末尾有一道自测。</p>
+<p class="muted">按 2025 版一般业务大纲分节整理，另附 2026 年纪法知识。每章导图是复习主线。点分支可以看补充考点；章末「本章还要对照大纲补什么」标出尚未详细讲解的内容。</p>
+<div class="controls" id="map-actions">
+<button type="button" class="secondary" id="expand-maps">展开全部章节</button>
+<button type="button" class="secondary" id="collapse-maps">收起全部章节</button>
+</div>
+<nav class="map-index" aria-label="思维导图章节索引">
+<div><strong>金融市场基础知识</strong><ul>
+<li><a href="#map-f1">第一章 金融市场体系</a></li>
+<li><a href="#map-f2">第二章 中国的金融体系与多层次资本市场</a></li>
+<li><a href="#map-f3">第三章 证券市场主体</a></li>
+<li><a href="#map-f4">第四章 股票</a></li>
+<li><a href="#map-f5">第五章 债券</a></li>
+<li><a href="#map-f6">第六章 证券投资基金</a></li>
+<li><a href="#map-f7">第七章 金融衍生品</a></li>
+<li><a href="#map-f8">第八章 金融风险管理</a></li>
+</ul></div>
+<div><strong>证券市场基本法律法规</strong><ul>
+<li><a href="#map-l1">第一章 证券市场基本法律法规</a></li>
+<li><a href="#map-l2">第二章 证券经营机构管理规范</a></li>
+<li><a href="#map-l3">第三章 证券公司业务规范</a></li>
+<li><a href="#map-l4">第四章 证券市场典型违法违规行为及法律责任</a></li>
+<li><a href="#map-l5">第五章 行业文化、职业道德与从业人员行为规范</a></li>
+</ul></div>
+<div><strong>新增纪法</strong><ul>
+<li><a href="#map-j1">补充 纪法知识</a></li>
+</ul></div>
+</nav>
+<div class="map-subject"><h3>金融市场基础知识 · 8 章</h3>
+<details class="map-chapter" id="map-f1">
+<summary class="map-root">第一章 金融市场体系</summary>
+<p class="map-focus"><strong>先记</strong>　先会区分融资方式和市场。国际市场先认常见机构及其分工。</p><ul class="map-branches">
+<li><div class="map-node"><h4>金融市场概述</h4><p>市场把有闲钱的人与需要钱的人连起来。发行市场发新证券，流通市场转手旧证券。股票和中长期债券看资本市场，短期资金周转看货币市场。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-1">一级市场 vs 二级市场</a> · <a href="#lesson-2">直接融资 vs 间接融资</a> · <a href="#lesson-3">货币市场 vs 资本市场</a></p>
+
+<ul class="map-extra-points">
+<li><strong>金融市场的功能</strong>　筹资是让缺钱的一方拿到资金，价格发现是通过买卖形成可参考的价格，风险转移是用交易把部分风险交给愿意承担的一方。</li>
+<li><strong>按交割时间分类</strong>　现货交易通常按现行规则较快交割，远期交易把交割安排在约定的未来日期。这个分类和发行市场、流通市场分开看。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>国际金融市场</h4><p>国际货币基金组织关注国际货币合作和金融稳定，世界银行侧重发展融资。看到境外投资，再区分股票、债券、外汇等市场与相应风险。</p>
+
+<ul class="map-extra-points">
+<li><strong>国际资金流动</strong>　买境外证券通常是证券投资；到境外设厂并参与经营通常是直接投资（FDI）。这里的直接投资在问跨境投资方式，和直接融资是在问不同的事。</li>
+<li><strong>外汇市场与国际金融监管组织</strong>　外汇市场处理不同货币之间的兑换。国际清算银行（BIS）为央行合作提供平台；巴塞尔委员会侧重银行监管标准，国际证监会组织（IOSCO）侧重证券监管合作。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>英、美、香港金融市场与监管特点，国际金融监管组织，跨境资金流动方式。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>银行先吸收存款、再贷款给企业，属于直接还是间接融资？</p><details><summary>核对答案</summary><p>间接融资。银行分别与储户、企业形成两层关系。</p></details></div></details>
+<details class="map-chapter" id="map-f2">
+<summary class="map-root">第二章 中国的金融体系与多层次资本市场</summary>
+<p class="map-focus"><strong>先记</strong>　先认央行工具，再用“主要服务哪类企业”辨板块。</p><ul class="map-branches">
+<li><div class="map-node"><h4>中国的金融体系</h4><p>央行通过准备金、再贴现和公开市场操作等工具影响资金条件。银行、证券、保险、信托各有分工。遇到“五篇大文章”，先把科技、绿色、普惠、养老、数字金融五项名称认全。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-4">四类机构职责</a> · <a href="#lesson-31">央行的三种常见货币政策工具</a></p>
+
+<ul class="map-extra-points">
+<li><strong>货币乘数</strong>　用来描述货币供应量与基础货币的比例。只考虑法定准备金的简化题里，准备金率 10%，存款乘数为 1÷10%＝10；现实还受现金持有和超额准备金影响。</li>
+<li><strong>货币政策传导</strong>　政策先影响银行体系的资金条件和融资成本，再可能影响企业投资和居民消费。题目常让你辨认中间环节。</li>
+<li><strong>央行资产负债表怎么看</strong>　央行持有的外汇储备和对金融机构的债权属于资产；发行在外的货币及金融机构在央行的存款等属于负债。银行把准备金存到央行，这笔钱是银行的资产，同时是央行的负债。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>中国的多层次资本市场</h4><p>主板典型是成熟大型企业，科创板突出科技创新，创业板侧重成长型创新创业企业。北交所侧重创新型中小企业，全国股转系统就是常说的新三板。区域性股权市场服务本地中小微企业。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-32">主板、科创板、创业板与 A 股、B 股、H 股</a></p>
+
+<ul class="map-extra-points">
+<li><strong>场内市场和场外市场</strong>　在交易所按统一规则集中交易，属于典型场内。柜台市场和区域性股权市场常归入场外。题目如果问一级市场，仍要回到证券是不是新发的。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>央行资产负债表和传导机制的细节、资本市场对外开放、新「国九条」和「1+N」政策体系。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>央行在公开市场卖出债券，银行体系通常更有钱还是更少钱？</p><details><summary>核对答案</summary><p>买方付款给央行，通常回笼流动性。</p></details></div></details>
+<details class="map-chapter" id="map-f3">
+<summary class="map-root">第三章 证券市场主体</summary>
+<p class="map-focus"><strong>先记</strong>　考职责题时，先圈动词“发行、撮合、结算、维权、监管”。</p><ul class="map-branches">
+<li><div class="map-node"><h4>证券发行人</h4><p>发行人用新证券筹资。发股票吸收股东出资，发债对投资者负有按约偿付的义务。政府、金融机构、企业可按规则发行相应证券。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-1">一级市场 vs 二级市场</a> · <a href="#lesson-34">金融债、浮息债与外国债券</a></p>
+
+<ul class="map-extra-points">
+<li><strong>首次融资和再融资</strong>　公司第一次向公众发行股票简称 IPO。公司上市后还可以通过配股、增发或发债等方式继续筹资，这些属于再融资。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券投资者</h4><p>区分个人和机构。基金、保险机构、养老金等可以是机构投资者。看到合格境外投资者、互联互通时，先判断是投资者身份还是交易渠道。</p>
+<ul class="map-extra-points">
+<li><strong>合格境外投资者与互联互通</strong>　QFII 看哪些境外机构可按制度参与境内市场；沪港通、深港通看交易所之间开了哪条交易通道。判断前者先圈投资者身份，判断后者先圈市场和方向。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券中介机构</h4><p>券商可经纪、承销、保荐；会计师、律师等提供专业服务；证券金融公司与转融通相关。券商帮卖新债，并不改变直接融资的性质。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-2">直接融资 vs 间接融资</a> · <a href="#lesson-26">经纪、自营、资管、承销保荐</a></p>
+
+<ul class="map-extra-points">
+<li><strong>转融通</strong>　证券金融公司按规则向证券公司出借资金或证券，供其开展有关业务。个人向自己的证券公司借钱买股票，是融资业务。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>自律性组织</h4><p>交易所组织交易并做场内自律，证券业协会制定和执行行业自律规则，中国结算处理证券登记、存管和结算。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-4">四类机构职责</a></p>
+</div></li>
+<li><div class="map-node"><h4>投资者保护机构</h4><p>投服中心可依法通过持股行权、支持诉讼等方式保护投资者；投资者保护基金主要按规定用于证券公司风险处置等情形。看到“赔付”时别理解成赔偿正常市场下跌。</p>
+
+<ul class="map-extra-points">
+<li><strong>投服中心与投保基金</strong>　投服中心常考持股行权、诉讼支持等维权方式；投资者保护基金常考风险处置中的资金使用。题目让你选机构时，先圈它要做的事。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券监管机构</h4><p>证监会依法监管证券市场，可依权限调查、采取措施。题目说证券市场禁入，先定位证监会的法定监管职责。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-4">四类机构职责</a> · <a href="#lesson-41">证券市场禁入与行业自律</a></p>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>机构投资者的作用和各类境外参与机制、证券服务机构备案与法律责任、保护基金来源和使用条件。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>谁组织撮合？谁登记成交后的证券归谁？</p><details><summary>核对答案</summary><p>交易所组织撮合，证券登记结算机构办理登记和结算。</p></details></div></details>
+<details class="map-chapter" id="map-f4" open>
+<summary class="map-root">第四章 股票</summary>
+<p class="map-focus"><strong>先记</strong>　先记性质和特征，再练股票分类、发行、交易顺序和两条估值公式。</p><ul class="map-branches">
+<li><div class="map-node"><h4>股票概述</h4><p>五种性质看代表什么权利，五种特征看持股能做什么。记名看记不记股东姓名，有面额看有没有注明面值。优先股和普通股都给股东身份。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-44">股票的性质：一张股票代表什么</a> · <a href="#lesson-45">股票的五个特征：收益、风险、流动、永久、参与</a> · <a href="#lesson-5">普通股、优先股、债券</a> · <a href="#lesson-6">现金分红、送股、转增</a> · <a href="#lesson-32">主板、科创板、创业板与 A 股、B 股、H 股</a></p>
+</div></li>
+<li><div class="map-node"><h4>股票发行</h4><p>注册制下要符合发行条件和信息披露要求。典型首次公开发行由交易所审核、报证监会注册。IPO 是首次公开发行，配股是按规则让原股东认购新股。保荐做核查和督导，承销做发售。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-18">公开发行与承销期限</a> · <a href="#lesson-19">代销、全额包销、余额包销</a> · <a href="#lesson-33">配股、增发与股票估值</a></p>
+
+<ul class="map-extra-points">
+<li><strong>审批制、核准制和注册制</strong>　备考先记三者的关注点：审批制行政色彩较强，核准制由监管部门依规定对发行条件作实质审查，注册制以信息披露为核心并依法审核注册，仍有发行和上市条件。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>股票交易</h4><p>连续竞价先比价格、同价再比时间。集合竞价把一段时间的申报集中撮合。委托是你发出的买卖指令，成交后还要按规则结算与交收。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-7">股票指数、委托与成交</a> · <a href="#lesson-4">四类机构职责</a></p>
+
+<ul class="map-extra-points">
+<li><strong>限价委托与市价委托</strong>　限价委托先限定可接受的价格，剩下的由市场撮合，可能不成交；市价委托按交易规则尽快成交，实际成交价随市场变化。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>股票估值</h4><p>市盈率＝股价÷每股收益，市净率＝股价÷每股净资产。估值是判断值多少，市场成交价是买卖双方实际成交的价。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-33">配股、增发与股票估值</a></p>
+
+<ul class="map-extra-points">
+<li><strong>票面、账面、清算和内在价值</strong>　票面价值看面值，账面价值看会计账上的权益，清算价值看清算时可分到的净额，内在价值看根据未来收益等估出来的价值。</li>
+<li><strong>绝对估值与相对估值</strong>　把预期股利等未来款折到今天，是绝对估值；拿市盈率、市净率等与同类公司比较，是相对估值。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>IPO 发行定价与配售细则、北交所发行、欺诈发行回购、退市条件、交易费用、跨境互联互通和指数编制步骤。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>一份股票证明你已经享有股东权利，考“要式”还是“证权”？</p><details><summary>核对答案</summary><p>证权。“要式”问形式和记载事项，“证权”问证券与权利的关系。</p></details></div></details>
+<details class="map-chapter" id="map-f5">
+<summary class="map-root">第五章 债券</summary>
+<p class="map-focus"><strong>先记</strong>　用“谁借钱、怎么付息、在哪交易、今天值多少”四问复习。</p><ul class="map-branches">
+<li><div class="map-node"><h4>债券概述</h4><p>债券通常约定本金、期限和利息。按发行人可见国债、地方政府债、金融债和公司债。按条款可见固定、浮动、零息以及可转换债。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-9">三种债券收益率</a> · <a href="#lesson-10">信用债、担保债与零息债</a> · <a href="#lesson-34">金融债、浮息债与外国债券</a></p>
+
+<ul class="map-extra-points">
+<li><strong>可转换债与可交换债</strong>　两者都先是一张债券。可转换债按约转为发行人自己的股票；可交换债可按条款交换为发行人持有的其他公司的股份。</li>
+<li><strong>储蓄国债与记账式国债</strong>　个人买储蓄国债常见凭证式和电子式，一般不上市流通，可按规则提前兑取。可上市流通的记账式国债能在二级市场转手，卖出价随行情变动。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>债券发行</h4><p>新债发行把钱筹给发行人。国债、金融债、公司债和债务融资工具各有市场与发行安排。记住可转换债允许按条款转换成股票。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-1">一级市场 vs 二级市场</a> · <a href="#lesson-18">公开发行与承销期限</a> · <a href="#lesson-34">金融债、浮息债与外国债券</a></p>
+</div></li>
+<li><div class="map-node"><h4>债券交易</h4><p>买卖存量债券是二级市场。国内债券可在银行间、交易所等市场交易；托管记债券归谁，结算处理交钱交券。回购题记正回购拿钱，逆回购出钱。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-4">四类机构职责</a> · <a href="#lesson-27">融资、融券与回购</a></p>
+
+<ul class="map-extra-points">
+<li><strong>现券、回购和远期</strong>　现券是直接买卖债券；回购是以债券为基础做一笔有期资金融通；远期是先约好未来某日按条件交易债券。</li>
+<li><strong>债券信用评级</strong>　评级是对偿债信用风险的意见，不能保证还本。用同一套评级口径比较，AAA 通常比 AA 信用等级高；题目还可能分别问发行人主体信用和某一只债券的信用。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>债券估值</h4><p>先找未来付的本金和利息，再按市场要求的收益率折算今天值多少。其他条件不变，固定利率债券价格与要求收益率反向变动。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-8">债券价格与市场利率</a> · <a href="#lesson-9">三种债券收益率</a> · <a href="#lesson-15">现值、终值与复利</a></p>
+
+<ul class="map-extra-points">
+<li><strong>净价与全价</strong>　净价是不含应计利息的报价，全价＝净价＋应计利息。若每百元面值净价 99 元，应计利息 1.20 元，全价就是 100.20 元。</li>
+<li><strong>收益率曲线</strong>　用同一时点、风险可比的不同期限债券收益率画出的线。题目说比较期限不同的收益率，就先想期限结构。</li>
+<li><strong>债券价格受哪些因素影响</strong>　两张债的现金流相同，市场要求的收益率上升会压低价格；如果是某家发行人的还款能力变差，投资者也可能要求更高回报。先分清是市场利率变了，还是信用风险增加。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>各类债券的发行、承销、交易及转托管细则，信用评级的完整分级与流程，可转换债要素，利率期限结构理论。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>年利息 5 元，面值 100 元，买价 80 元，当期收益率是多少？</p><details><summary>核对答案</summary><p>5÷80＝6.25%。面值作分母算出来的是票面利率。</p></details></div></details>
+<details class="map-chapter" id="map-f6">
+<summary class="map-root">第六章 证券投资基金</summary>
+<p class="map-focus"><strong>先记</strong>　先把管理人、托管人和持有人分开，再弄清申赎与买卖、净值和费用。</p><ul class="map-branches">
+<li><div class="map-node"><h4>基金概述</h4><p>基金把很多人的钱集中投资。开放或封闭看能否按约赎回；股票、债券、混合、货币等类型看投向；公募、私募看募集对象和方式。ETF 与 LOF 均可上市买卖。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-11">管理人、托管人和持有人</a> · <a href="#lesson-12">开放式、封闭式、ETF 与 LOF</a> · <a href="#lesson-42">私募基金、合格投资者和专业化管理</a></p>
+
+<ul class="map-extra-points">
+<li><strong>契约型与公司型基金</strong>　契约型靠基金合同来约定管理人、托管人和持有人的权利义务；公司型以公司形式组建，投资者持有该公司的股份。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>运作与业务流程</h4><p>募集期买叫认购，成立后开放购买时叫申购，交回份额叫赎回，市场转卖给别人叫卖出。遇到基金转换、转托管时先分清换产品还是换份额存放渠道。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-12">开放式、封闭式、ETF 与 LOF</a> · <a href="#lesson-13">份额净值和认购</a></p>
+</div></li>
+<li><div class="map-node"><h4>估值、费用与利润分配</h4><p>份额净值＝（总资产－总负债）÷总份额。管理费、托管费通常由基金按合同计提，申购赎回费看投资者交易和产品规则。分红后净值相应调整。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-13">份额净值和认购</a> · <a href="#lesson-35">ETF 的溢价和折价</a></p>
+
+<ul class="map-extra-points">
+<li><strong>基金费用从哪出</strong>　管理费和托管费通常从基金财产按约计提；申购或赎回费要先看是谁做了这笔交易及合同约定。</li>
+<li><strong>侧袋机制</strong>　基金手里有暂时难以合理定价的特定资产时，按规则把它单独放在「侧袋」管理，让其他资产留在主袋继续运作。</li>
+<li><strong>前端收费和后端收费</strong>　前端一般是在认购或申购时收，后端按产品约定在赎回时收取相应的认购或申购费用；赎回费本身是另一项费用。题目先看收费名目，再看收取时间。</li>
+<li><strong>现金分红与红利再投资</strong>　现金分红拿现金，红利再投资按规则把红利换成更多份额。若每份净值 1.20 元、每份派 0.10 元，忽略其他变化，分红后每份净值约 1.10 元。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>基金的管理</h4><p>管理人按合同投资并管理风险，托管人保管、监督和复核，持有人有份额权益。基金财产与管理人、托管人自有财产分开。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-11">管理人、托管人和持有人</a></p>
+
+<ul class="map-extra-points">
+<li><strong>业绩比较基准</strong>　用来对照基金表现的参照，比如某个指数或几个指数的组合。基金涨了 4%，基准涨了 6%，基金仍跑输基准 2 个百分点。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>基金的监管与信息披露</h4><p>把监管者、行业自律组织和履行披露义务的机构分开。招募说明书看怎么买和怎么投，定期报告看运作情况，临时公告看重要变化。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-29">账户出借、信息披露与利益冲突</a></p>
+</div></li>
+<li><div class="map-node"><h4>私募证券投资基金</h4><p>私募向合格投资者非公开募集。管理人登记、基金备案分别对应机构和产品，完成手续也不代表投资有保证。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-42">私募基金、合格投资者和专业化管理</a></p>
+</div></li>
+<li><div class="map-node"><h4>基础设施公募 REITs</h4><p>理解成把基础设施项目的投资权益装进可交易的公募基金份额。收益与项目运营、可分配收益和市场价格有关。用房租或通行费设想项目现金流。</p>
+<ul class="map-extra-points">
+<li><strong>基础设施公募 REITs 怎么退出</strong>　这类基金通常封闭运作，份额可在交易所上市交易。持有者想退出时，可按规则转让上市份额；分配和价格会受到项目运营、租金或收费等影响。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>基金费用计提标准和税收细则、各类基金分配规则差异、业绩评价指标、公募 REITs 申请与发行交易规定。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>在交易所卖出 ETF，有人接手 100 份，基金总份数因此减少吗？</p><details><summary>核对答案</summary><p>不会。100 份换了持有人；赎回交回基金时，总份数通常减少。</p></details></div></details>
+<details class="map-chapter" id="map-f7">
+<summary class="map-root">第七章 金融衍生品</summary>
+<p class="map-focus"><strong>先记</strong>　先找未来交易的对象，再看谁必须履约、谁可以放弃。</p><ul class="map-branches">
+<li><div class="map-node"><h4>金融衍生品概述</h4><p>合约价值受标的影响，标的可为商品、股票、汇率或利率。套期保值是用一笔相关交易抵掉部分原有风险。杠杆会放大相对投入资金的盈亏。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-17">四种合约怎么区分？期货、远期、期权、互换</a> · <a href="#lesson-36">套期保值、多头和空头</a></p>
+
+<ul class="map-extra-points">
+<li><strong>标的和杠杆</strong>　标的是决定合约价值的东西，比如铜价或汇率。少量保证金可对应较大名义金额，所以合约的小幅波动也可能造成较大的资金盈亏。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>期货与期权交易</h4><p>期货由交易所统一合约规格。期权买方先付权利金；看涨给买入权，看跌给卖出权。计算整笔收益时扣除权利金。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-17">四种合约怎么区分？期货、远期、期权、互换</a> · <a href="#lesson-37">看涨、看跌与期权净收益</a> · <a href="#lesson-40">期货保证金与当日无负债结算</a></p>
+
+<ul class="map-extra-points">
+<li><strong>认购期权与认沽期权</strong>　认购是按约买入标的的权利，也叫看涨；认沽是按约卖出标的的权利，也叫看跌。权利金是为获得权利先付的费用。</li>
+<li><strong>期权价格受什么影响</strong>　先比较标的价格和行权价，看现在行权是否划算；剩余期限、预期波动和利率等也会影响权利金。其他条件相同，波动更大通常有利于期权价值。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>远期与互换交易</h4><p>远期通常是双方自订条款，约好未来买卖。利率互换常是一边按固定利率算、一边按浮动利率算，再按约交换资金流，名义本金用来计息。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-17">四种合约怎么区分？期货、远期、期权、互换</a></p>
+</div></li>
+<li><div class="map-node"><h4>其他衍生品</h4><p>信用衍生品可转移部分信用风险；信用违约互换可从“为信用保护付费”理解。结构化产品把不同合约或收益条件组合，先看最终收益由什么条件触发。</p>
+
+<ul class="map-extra-points">
+<li><strong>信用违约互换（CDS）</strong>　保护买方付费，约定信用事件发生时由保护卖方按合同补偿。先找谁在付保护费、谁承担约定的信用损失。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>各种合约市场的品种与特点、期权价格影响因素、信用衍生品和结构化产品的详细收益条件。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>付了权利金后，可以按约定价买，也可以放弃，这是什么？</p><details><summary>核对答案</summary><p>看涨期权。买方取得的是买入权，是否行权由买方按规则决定。</p></details></div></details>
+<details class="map-chapter" id="map-f8">
+<summary class="map-root">第八章 金融风险管理</summary>
+<p class="map-focus"><strong>先记</strong>　先分风险来源，再学“怎么量、怎么管”。</p><ul class="map-branches">
+<li><div class="map-node"><h4>风险管理概述</h4><p>先识别风险，再衡量、应对和监控。常见应对包括回避、降低、转移和承受。分散可降低部分个别公司风险，市场共同波动仍可能影响整体。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-14">四类风险与分散投资</a></p>
+</div></li>
+<li><div class="map-node"><h4>风险管理流程与券商架构</h4><p>风险偏好是愿意承担怎样和多少风险，容忍度是可接受的偏离范围，限额是业务的可执行边界。压力测试用不利情境检验承受能力。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-25">证券公司净资本和风控比率</a> · <a href="#lesson-38">战略风险、交易对手信用风险和压力测试</a></p>
+
+<ul class="map-extra-points">
+<li><strong>风险偏好、容忍度和限额</strong>　偏好定愿意承担什么风险，容忍度定允许偏离多少，限额把范围落实为可执行的数字或业务边界。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>市场风险管理</h4><p>利率、汇率、股价等变动都会影响投资价值。单因素敏感性分析一次改一个因素，波动率刻画价格变动幅度。限额和对冲都是控制手段。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-14">四类风险与分散投资</a> · <a href="#lesson-16">资产证券化与敏感性分析</a> · <a href="#lesson-36">套期保值、多头和空头</a></p>
+
+<ul class="map-extra-points">
+<li><strong>敏感性、波动率和压力测试</strong>　敏感性看某个因素变一下的影响；波动率看价格平时跳动的幅度；压力测试看很不利的假设情景下可能亏多少。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>信用风险管理</h4><p>债务人或交易对手不履约会使你受损。识别时先找谁欠钱或有履约义务，再考虑担保、额度限制等办法。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-10">信用债、担保债与零息债</a> · <a href="#lesson-38">战略风险、交易对手信用风险和压力测试</a></p>
+<ul class="map-extra-points">
+<li><strong>违约概率与违约损失率</strong>　违约概率是「对方有多大可能不还」，违约损失率是「已经不还的情况下，最终会损失剩余债权的多少」。考简化预期损失时，再把违约风险暴露乘上两项。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>流动性风险管理</h4><p>区分“找不到买家、来不及卖”和“到期付款时来不及筹钱”。流动性覆盖率看短期资金缺口，净稳定资金率看资金来源较长期是否稳定。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-14">四类风险与分散投资</a> · <a href="#lesson-25">证券公司净资本和风控比率</a></p>
+<ul class="map-extra-points">
+<li><strong>流动性缺口与应急融资</strong>　预计某天到期要付 100 万元，届时只有 70 万元可以用，缺口就是 30 万元。做压力测试时还会假设融资渠道变少或手里资产更难出售，检查预备方案。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>操作、声誉、国别和战略风险</h4><p>人、系统、流程失误看操作；失去公众或客户信任看声誉；境外政治经济变化看国别；经营方向选错看战略。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-14">四类风险与分散投资</a> · <a href="#lesson-38">战略风险、交易对手信用风险和压力测试</a></p>
+
+<ul class="map-extra-points">
+<li><strong>声誉风险和战略风险</strong>　客户因负面事件不再信任公司，想到声誉风险；管理层错误选择经营方向、资源配置失当，想到战略风险。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券公司风险管理实践</h4><p>一项业务从开展前的识别与授权，到运行中的限额、数据监测，再到异常报告与整改，都有风险管理职责和记录。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-23">客户资金与合规责任</a> · <a href="#lesson-43">董事会审议合规制度与三道业务监控防线</a></p>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>波动性指标、信用风险评估与管理指标、流动性测算模型、风险管理架构和流程细则。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>债券因利率上升跌价，与发行人到期不还钱，分别是什么风险？</p><details><summary>核对答案</summary><p>前者是市场风险，后者是信用风险。</p></details></div></details>
+</div>
+<div class="map-subject"><h3>证券市场基本法律法规 · 5 章</h3>
+<details class="map-chapter" id="map-l1">
+<summary class="map-root">第一章 证券市场基本法律法规</summary>
+<p class="map-focus"><strong>先记</strong>　先拿公司设立、公开发行、承销、基金三方与期货结算，再辨认其余法律的适用主体。</p><ul class="map-branches">
+<li><div class="map-node"><h4>证券市场法律法规体系</h4><p>先辨制定主体和规范性质。法律、行政法规、部门规章和行业自律规则各有位置；一道题同时问责任时，还要核对哪项规则适用于当事人。</p>
+</div></li>
+<li><div class="map-node"><h4>公司法</h4><p>有限公司主要看股东人数、认缴出资、股东会和表决权。股份公司设立用发起人口径。子公司具有法人资格，分公司没有法人资格。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-20">公司组织与发起人数</a> · <a href="#lesson-21">有限公司出资与特别决议</a> · <a href="#lesson-39">股东会、非货币出资与法定公积金</a></p>
+
+<ul class="map-extra-points">
+<li><strong>子公司与分公司</strong>　子公司有法人资格，依法以自己的名义承担责任；分公司没有法人资格，其民事责任由公司承担。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>合伙企业法</h4><p>普通合伙人一般对合伙债务承担无限连带责任，有限合伙人通常以认缴出资额为限。看到不对所有债务无限负责，先确认题目说的是哪一类合伙人。</p>
+
+<ul class="map-extra-points">
+<li><strong>普通合伙人与有限合伙人</strong>　普通合伙人一般对合伙债务承担无限连带责任；有限合伙人一般以认缴的出资额为限承担责任。先圈题目中的身份。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券法</h4><p>公开发行先判断对象，再判断特定对象累计人数。代销卖不完退，余额包销买剩余。另记收购程序、定期和临时披露、投资者保护和交易红线。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-18">公开发行与承销期限</a> · <a href="#lesson-19">代销、全额包销、余额包销</a> · <a href="#lesson-22">适当性与普通投资者保护</a> · <a href="#lesson-28">内幕交易、操纵市场和损害客户利益</a> · <a href="#lesson-29">账户出借、信息披露与利益冲突</a></p>
+
+<ul class="map-extra-points">
+<li><strong>要约收购和协议收购</strong>　要约是向有关股东提出按条件买股票的公开收购安排；协议收购是与有关股东协商达成收购协议。遇到比例、公告和期限要核对具体规定。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券投资基金法</h4><p>管理人投资、托管人保管和监督，同一只基金两者须由不同机构担任。基金财产与机构自有财产分开。公募和私募按募集方式及对象区别。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-11">管理人、托管人和持有人</a> · <a href="#lesson-42">私募基金、合格投资者和专业化管理</a></p>
+</div></li>
+<li><div class="map-node"><h4>期货和衍生品法</h4><p>先认期货、期权、远期、互换各是什么，再记保证金、当日无负债结算和交割。每日结算会按规则调整资金，持仓仍可继续。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-17">四种合约怎么区分？期货、远期、期权、互换</a> · <a href="#lesson-40">期货保证金与当日无负债结算</a></p>
+</div></li>
+<li><div class="map-node"><h4>证券公司监督管理条例</h4><p>看券商设立、股东与实际控制人、可开展哪些业务、账户管理和客户资产保护。客户交易资金不能挪来给公司垫钱。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-23">客户资金与合规责任</a> · <a href="#lesson-26">经纪、自营、资管、承销保荐</a></p>
+</div></li>
+<li><div class="map-node"><h4>证券公司风险处置条例</h4><p>记住停业整顿、托管、接管、行政重组等是对经营机构的风险处置。题目给行为主体和事实时，先区分风险处置与对个人的市场禁入。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-41">证券市场禁入与行业自律</a></p>
+<ul class="map-extra-points">
+<li><strong>停业整顿、托管、接管与行政重组</strong>　停业整顿侧重暂停有关业务并整改；托管侧重由受托机构管理相关业务；接管时接管组织按规定行使相关经营管理权；行政重组侧重用重组安排处置风险。具体权限和条件以条例为准。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>私募投资基金监督管理条例</h4><p>非公开向合格投资者募集，区分管理人登记与基金备案。看财产独立、风险匹配、人员专业化和信息披露等要求。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-42">私募基金、合格投资者和专业化管理</a></p>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>上市公司收购和权益变动的精确期限、公司股权转让、各项监管/风险处置措施的条件、私募投资层级与禁止行为。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>向不特定对象发行，最后只有 20 人认购，算公开发行吗？</p><details><summary>核对答案</summary><p>算。面向不特定对象本身就是一项公开发行条件。</p></details></div></details>
+<details class="map-chapter" id="map-l2">
+<summary class="map-root">第二章 证券经营机构管理规范</summary>
+<p class="map-focus"><strong>先记</strong>　先看业务内部怎么防风险，再看怎么保护客户、识别异常和管理数据。</p><ul class="map-branches">
+<li><div class="map-node"><h4>治理、内控与合规</h4><p>董事会审议合规基本制度，制度覆盖整个机构。三道防线按一线、相互制衡、独立检查来分。信息隔离墙用于限制未公开敏感信息不当流动。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-23">客户资金与合规责任</a> · <a href="#lesson-43">董事会审议合规制度与三道业务监控防线</a></p>
+
+<ul class="map-extra-points">
+<li><strong>信息隔离墙和跨墙</strong>　隔离墙是人员、场所、系统等方面的管理措施，用来防止未公开敏感信息不当流动；业务确需跨部门接触这类信息时，要按规定履行跨墙程序。</li>
+<li><strong>观察名单、限制名单</strong>　观察名单侧重监控有关公司或证券，限制名单侧重按规定限制交易、研究等有关活动。题干写「监控」还是「限制」，先找动作再看适用条件。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券公司风险管理</h4><p>认净资本、覆盖率、杠杆率和流动性指标的分子分母，再看哪些人员负责识别、评估、监测、报告和处理风险。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-14">四类风险与分散投资</a> · <a href="#lesson-25">证券公司净资本和风控比率</a></p>
+</div></li>
+<li><div class="map-node"><h4>证券公司并表管理</h4><p>并表管理从母公司单体扩展到集团整体，把纳入范围的子公司和相关风险一并看，关注资本、内部交易、组织治理与风险集中。</p>
+
+<ul class="map-extra-points">
+<li><strong>并表管理</strong>　把纳入范围的母子公司和相关风险放在集团层面一并管理，重点看资本、内部交易、风险集中与职责。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>投资者适当性</h4><p>先了解客户、划分产品风险，再匹配、告知、留痕。区分普通与专业投资者，普通投资者享有特别保护。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-22">适当性与普通投资者保护</a></p>
+
+<ul class="map-extra-points">
+<li><strong>留痕与风险匹配</strong>　留痕是把告知和确认过程记录下来；风险匹配是判断客户能否承担产品的风险。签字记录不能自行替代匹配。</li>
+<li><strong>普通投资者与专业投资者</strong>　符合规定条件的专业机构等可归为专业投资者，其余为普通投资者。普通投资者在告知、风险警示和匹配等方面享有特别保护；符合条件和程序时两类可以转换。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>反洗钱和反恐怖融资</h4><p>先识别客户、经办人、受益所有人，再依规保存资料、识别大额或可疑交易。小额异常也可能有报告义务。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-24">反洗钱与客户尽职调查</a></p>
+</div></li>
+<li><div class="map-node"><h4>信息技术及网络数据管理</h4><p>看谁对系统和数据负责、业务变更是否审查、数据是否按规则管理。信息技术外包仍需要券商履行自己的管理职责。</p>
+</div></li>
+<li><div class="map-node"><h4>网络和信息安全</h4><p>关注权限最小化、风险监测、事件报告和应急恢复。看到系统瘫痪或数据泄露，先想到保护客户、处置事件并按规则报告。</p>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>风控指标监管标准、分类评价、跨墙审批和名单具体限制、投资者分类转换条件及留痕要求、数据与网络安全具体要求。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>客户签了风险自负，能替代券商了解客户和匹配产品吗？</p><details><summary>核对答案</summary><p>不能。签字可以留痕，实际了解、匹配和揭示风险仍要按规定完成。</p></details></div></details>
+<details class="map-chapter" id="map-l3">
+<summary class="map-root">第三章 证券公司业务规范</summary>
+<p class="map-focus"><strong>先记</strong>　每道情境先问“谁决定、谁出钱、谁承担风险、是在帮谁办什么”。</p><ul class="map-branches">
+<li><div class="map-node"><h4>证券经纪</h4><p>按客户委托报单，做好实名开户、适当性、记录和客户资金管理。擅自操作、挪用资金属于典型错误选项。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-23">客户资金与合规责任</a> · <a href="#lesson-26">经纪、自营、资管、承销保荐</a> · <a href="#lesson-28">内幕交易、操纵市场和损害客户利益</a></p>
+</div></li>
+<li><div class="map-node"><h4>证券投资咨询</h4><p>投顾侧重向客户提供投资建议，研究报告侧重形成和发布研究分析。题目看服务对象、收费与执业要求、风险提示和利益冲突。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-29">账户出借、信息披露与利益冲突</a></p>
+
+<ul class="map-extra-points">
+<li><strong>证券投资顾问和发布研究报告</strong>　投顾侧重面向客户提供投资建议；发布研究报告侧重研究对象分析并形成报告。先看题干的服务和输出。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券财务顾问</h4><p>常见于上市公司并购重组等交易，工作重点是调查、出具专业意见和履行持续督导等职责。题目问买哪只股票的建议时，先考虑投资咨询。</p>
+
+<ul class="map-extra-points">
+<li><strong>财务顾问</strong>　并购重组时对交易安排调查并出具专业意见，是典型财务顾问工作。证券投资咨询更侧重投资建议或研究信息。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券承销与保荐</h4><p>承销的任务是发售证券，保荐的任务是推荐、核查和持续督导。区分代销、全额包销和余额包销。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-18">公开发行与承销期限</a> · <a href="#lesson-19">代销、全额包销、余额包销</a> · <a href="#lesson-26">经纪、自营、资管、承销保荐</a></p>
+</div></li>
+<li><div class="map-node"><h4>融资融券及其他信用业务</h4><p>融资借钱买，融券借券卖。账户、合同、标的、保证金与担保物都是考查点。担保物是用于保证履约的财产。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-27">融资、融券与回购</a></p>
+
+<ul class="map-extra-points">
+<li><strong>两融里的标的、保证金和担保物</strong>　标的是券商允许融资买入或融券卖出的证券；保证金是按规则交存的资金或可以充抵的证券；担保物是用于保障归还义务的财产。</li>
+<li><strong>普通证券账户与信用证券账户</strong>　普通证券账户做一般证券交易。开展融资融券时，按规则开立信用证券账户等专用账户，记录信用交易相关证券和担保物；别看到「账户」就默认是普通账户。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券自营</h4><p>用证券公司自有资金或符合规定的资金、以公司自身名义投资，盈亏由公司承担。自营与客户业务应按规则隔离。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-26">经纪、自营、资管、承销保荐</a></p>
+</div></li>
+<li><div class="map-node"><h4>证券资产管理</h4><p>依合同受托管理资产，管理人按授权选择投资。客户要了解风险，机构不得承诺保本或保证收益。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-22">适当性与普通投资者保护</a> · <a href="#lesson-26">经纪、自营、资管、承销保荐</a></p>
+</div></li>
+<li><div class="map-node"><h4>全国股转系统与柜台业务</h4><p>全国股转系统是常说的新三板，券商可按规则提供推荐挂牌等服务。柜台市场是机构在规则范围内为客户提供的场外业务渠道。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-32">主板、科创板、创业板与 A 股、B 股、H 股</a></p>
+</div></li>
+<li><div class="map-node"><h4>其他业务</h4><p>可关注做市、资产证券化和跨境业务。做市靠持续提供买卖报价，资产证券化看基础资产、管理人和现金流，跨境业务先辨方向与适用规则。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-16">资产证券化与敏感性分析</a></p>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>投资咨询与财务顾问的执业细则、两融客户与账户、资管的详细业务规则、场外和跨境渠道的准入规定。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>客户说“买 100 股”，券商照做；客户签约让经理替他挑资产，这两件事怎么分？</p><details><summary>核对答案</summary><p>前者是经纪，后者是在合同范围内管理资产。</p></details></div></details>
+<details class="map-chapter" id="map-l4">
+<summary class="map-root">第四章 证券市场典型违法违规行为及法律责任</summary>
+<p class="map-focus"><strong>先记</strong>　先分发行和交易，再圈行为特征。看到违法线索后，还要检查责任成立的条件。</p><ul class="map-branches">
+<li><div class="map-node"><h4>证券一级市场</h4><p>发证券时重点看是否擅自公开发行、发行材料是否欺诈、披露有没有重要遗漏。按题干判定行为，再判断民事、行政或刑事责任的适用条件。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-18">公开发行与承销期限</a> · <a href="#lesson-19">代销、全额包销、余额包销</a> · <a href="#lesson-29">账户出借、信息披露与利益冲突</a></p>
+
+<ul class="map-extra-points">
+<li><strong>擅自发行与欺诈发行</strong>　擅自发行先查公开发行有没有依法履行所需程序。欺诈发行先查发行材料有没有虚假记载、误导或隐瞒重要事实等。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>证券二级市场</h4><p>消息重大且未公开并被利用，指向内幕交易。虚假申报、对倒等意图影响市场，指向操纵。客户未授权就下单，指向损害客户利益。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-28">内幕交易、操纵市场和损害客户利益</a> · <a href="#lesson-29">账户出借、信息披露与利益冲突</a></p>
+
+<ul class="map-extra-points">
+<li><strong>内幕交易、操纵市场、虚假陈述</strong>　内幕交易抓利用重大未公开信息；操纵抓影响或意图影响价量的行为；虚假陈述抓披露内容有虚假、误导或重大遗漏。</li>
+<li><strong>行为和责任分两步</strong>　先判断做了什么，再按法定条件看可能承担民事、行政还是刑事责任。同一行为可能涉及多类责任。</li>
+<li><strong>虚假陈述和内幕交易先看哪一步</strong>　财报故意写错一项重大事实，先查披露本身是否构成虚假陈述；员工提前知道重大事项并据此买股票，先查未公开信息如何被利用。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>逐类违法的法律责任、刑事构成和量刑、处罚条件、民事赔偿认定。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>用两个实控账户制造活跃成交，是内幕还是操纵？</p><details><summary>核对答案</summary><p>先看操纵市场。关键是用交易行为制造假象，意图影响价格或交易量。</p></details></div></details>
+<details class="map-chapter" id="map-l5">
+<summary class="map-root">第五章 行业文化、职业道德与从业人员行为规范</summary>
+<p class="map-focus"><strong>先记</strong>　常问谁在借业务谋私利、怎么处理利益冲突、谁能采取市场禁入。</p><ul class="map-branches">
+<li><div class="map-node"><h4>证券行业文化建设</h4><p>先认“合规、诚信、专业、稳健”四个常用关键词。案例里看业务推动是否尊重规则、如实告知、履行专业职责和控制风险。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-30">纪法知识与廉洁从业</a></p>
+</div></li>
+<li><div class="map-node"><h4>证券经营机构及人员廉洁从业</h4><p>看有没有利用项目、交易、采购等业务机会谋取或输送不正当利益。好处性质、对象、实际受益人和业务关联都要看。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-30">纪法知识与廉洁从业</a></p>
+
+<ul class="map-extra-points">
+<li><strong>利益输送与回避</strong>　用业务机会换取不当好处，想到利益输送；亲属关系或私人持股可能影响判断时，按适用规则报告、披露或回避。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>诚信管理及市场禁入</h4><p>诚信管理关注从业行为和相关记录。正式证券市场禁入由证监会依法采取，限制范围和期限依具体规定。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-41">证券市场禁入与行业自律</a></p>
+
+<ul class="map-extra-points">
+<li><strong>市场禁入与纪律处分</strong>　市场禁入看证监会依法采取的措施。行业协会或交易所按自律规则处理违规，题目把主体写在同一组选项里，要先认准措施名称。</li>
+<li><strong>诚信信息的记录、查询和更正</strong>　诚信信息可包括按规则记载的处罚、监管或自律措施等。题目问能否公示、谁能查询、发现有误怎么办，要区分信息类别及适用程序。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>从业人员行为规范</h4><p>诚信勤勉、公平对待客户、保守秘密、识别并管理利益冲突。题目说有亲属、持股或其他私人关系时，检查是否应报告、回避或披露。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-28">内幕交易、操纵市场和损害客户利益</a> · <a href="#lesson-29">账户出借、信息披露与利益冲突</a></p>
+
+<ul class="map-extra-points">
+<li><strong>诚信勤勉和公平对待客户</strong>　诚信是如实说明，勤勉是履行该做的调查、核查与服务职责；公平对待客户时留意选择性告知或把好机会私下留给关系户。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>诚信信息的范围、查询和更正、监管与自律措施、禁入类型和期限、人员执业登记和行为细则。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>项目经办人让对方送钱给亲属，是否仍需判断其廉洁从业责任？</p><details><summary>核对答案</summary><p>是。看是否借职务或业务交换不正当利益，亲属代收同样需要判断。</p></details></div></details>
+</div>
+<div class="map-subject"><h3>纪法知识 · 补充</h3>
+<details class="map-chapter" id="map-j1">
+<summary class="map-root">补充 纪法知识</summary>
+<p class="map-focus"><strong>先记</strong>　先辨政策原文、党纪和法律责任。逐项以 2026 年纪法大纲和列明的材料为准。</p><ul class="map-branches">
+<li><div class="map-node"><h4>金融政策和国家部署</h4><p>用原文记关键词，关注金融工作重要论述、进一步全面深化改革、“十五五”规划等大纲材料。比如高水平社会主义市场经济体制是中国式现代化的重要保障。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-30">纪法知识与廉洁从业</a></p>
+
+<ul class="map-extra-points">
+<li><strong>政策原文配对</strong>　把政策目标和措施做成配对。比如高水平社会主义市场经济体制，对应中国式现代化的重要保障。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>党内法规与廉洁要求</h4><p>中央八项规定精神、廉洁自律准则和党的纪律等先区分适用主体。纪律处分与问责分开看。大纲注明仅限高管的要求单独识别。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-30">纪法知识与廉洁从业</a></p>
+
+<ul class="map-extra-points">
+<li><strong>六项纪律</strong>　先认政治纪律、组织纪律、廉洁纪律、群众纪律、工作纪律、生活纪律六类。做情境题要按条例的具体规定判断行为归属。</li>
+<li><strong>对党员的纪律处分种类</strong>　常见考法是辨认警告、严重警告、撤销党内职务、留党察看、开除党籍。看到「政务处分」要先检查受处分对象和依据。</li>
+</ul>
+</div></li>
+<li><div class="map-node"><h4>规范经营与廉洁相关法律</h4><p>按大纲核对《民法典》《刑法》《监察法》《公职人员政务处分法》《反不正当竞争法》等材料。案例先抓主体和行为，例如公职人员处分与商业贿赂的判断入口不同。</p>
+<p class="map-lesson-links">展开讲义　<a href="#lesson-30">纪法知识与廉洁从业</a></p>
+
+<ul class="map-extra-points">
+<li><strong>党纪、政务处分与刑责</strong>　先认主体和行为。党员身份可能涉及党纪，公职身份可能涉及政务处分，是否构成犯罪按刑法另行判断。</li>
+</ul>
+</div></li>
+</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>政策表述需逐项核对原文；党纪处分、问责、政务处分与刑事责任的法定条件和程序，以及大纲仅限高管的考点。</p></details>
+<div class="map-check"><strong>合上图想一想</strong><p>题干给出党员、公职人员、证券从业人员，先判断什么？</p><details><summary>核对答案</summary><p>先认题干对应的主体和行为，再找党纪、政务处分、法律责任或行业规范；同一件事可能同时涉及多类规则。</p></details></div></details>
+</div>
+<p class="foot muted"><a href="https://tftax.com/upload/cjsw/202511/biras8402c38/biras8402c38.pdf">2025 版一般业务测试大纲全文</a> · <a href="https://www.sac.net.cn/pxzx/pxzdydg/202606/t20260626_81842.html">2026 年纪法大纲发布公告及附件</a></p>
 </section>
 
 <section class="panel" id="words">
@@ -106,10 +638,10 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 
 <section class="panel" id="notes">
 <h2>考点讲义</h2>
-<p class="intro">先看「考什么」，知道题目会给什么条件、让你判断什么。再看「一句话记住」，记住用哪条规则答。</p>
+<p class="intro">先看「考什么」，知道题目会给什么条件、让你判断什么。再看「一句话记住」，记住用哪条规则答。做题遇到不熟的词，可以用搜索框查，或到左侧两科的「题库补充」找。</p>
 <div class="controls">
 <label>科目<select id="subject"><option value="">两科</option><option value="F">金融市场基础知识</option><option value="L">证券市场基本法律法规</option></select></label>
-<label>优先级<select id="priority"><option value="">全部</option><option value="A">先拿分</option><option value="B">再补强</option></select></label>
+<label>优先级<select id="priority"><option value="">全部</option><option value="A">先拿分</option><option value="B">再补强</option><option value="extra">题库补充</option></select></label>
 <label>搜考点<input id="query" type="search" placeholder="例如 ETF、包销、净资本"></label>
 </div>
 <p class="muted" id="note-count" aria-live="polite"></p>
@@ -158,6 +690,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 
 <section class="panel" id="sources">
 <h2>资料来源与考点取舍</h2>
+<p>章节导图按大纲分节整理；下方讲义着重解释难懂概念，未逐条展开大纲细项。「先拿分」表示适合先学的基础内容，未统计正式试卷中的出现频率。回忆题用于参考问法，考试范围以协会大纲为准。</p>
 <p>抽样看过 2024 年 6 月、2025 年 6 月、2026 年 6 月及 9 月的公开题目或考情回顾。法规优先梳理发行承销、机构风控、违法行为和客户保护。金融基础优先梳理股票、债券、基金，再补市场主体、风险和衍生工具。样本来源和回忆完整度不同，这里的优先级是冲刺顺序。</p>
 <ul class="source-list">
 <li>考试口径与样题入口。<a href="https://ks.sac.net.cn/sac/examMsg/showNotice.htm?id=159">中国证券业协会 2026 年考生问答</a> · <a href="https://www.233.com/zq/baoming/202610/21162948310825.html">11 月专场公告转载</a></li>
@@ -166,6 +699,11 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li>机构内控与识别客户。<a href="https://www.csrc.gov.cn/csrc/c106256/c1653949/content.shtml">合规管理办法</a> · <a href="https://www.csrc.gov.cn/csrc/c106256/c1653957/content.shtml">风险控制指标管理办法</a> · <a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2025/art_cfcc31edf0a64744bb5d7ff1307c0356.html">《反洗钱法》</a></li>
 <li>期货、远期、期权与互换的定义。<a href="https://jdjc.mof.gov.cn/fgzd/202205/t20220518_3811215.htm">《期货和衍生品法》第三条</a></li>
 <li>基金上市买卖与申购赎回。<a href="https://www.sse.com.cn/assortment/fund/lof/home/">上交所 LOF 介绍</a> · <a href="https://www.sse.com.cn/disclosure/fund/announcement/c/new/2025-08-15/501037_20250815_CI6J.pdf">中证 500 指数型 LOF 实例</a> · <a href="https://www.szse.cn/www/investor/warning/t20210104_584079.html">深交所场内基金交易指南</a> · <a href="https://www.sse.com.cn/lawandrules/sselawsrules2025/fund/trading/c/c_20260617_10822565.shtml">上交所主动 ETF 业务指引</a></li>
+<li>优先股的股东身份、ETF 成交价和净值。<a href="https://www.csrc.gov.cn/csrc/c100211/c1452092/content.shtml">证监会优先股介绍</a> · <a href="https://investor.szse.cn/warning/activities/fundIntroduction/t20210104_584079.html">深交所场内基金交易指南</a></li>
+<li>章节补充参考。<a href="https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20150912_3988250.shtml">上交所债券净价交易问答</a> · <a href="https://www.csrc.gov.cn/csrc/c100028/c1000746/content.shtml">证监会基金侧袋机制说明</a> · <a href="https://www.csrc.gov.cn/shenzhen/c104305/c1584317/content.shtml">证监会信息隔离墙说明</a> · <a href="https://www.csrc.gov.cn/jilin/c105397/c1268032/content.shtml">证监会投顾和研究报告问答</a></li>
+<li>非股票章节补充。<a href="https://zwgls.mof.gov.cn/ywgg/202604/t20260424_3988363.htm">财政部个人购买国债问答</a> · <a href="https://www.csrc.gov.cn/csrc/c106256/c1653849/content.shtml">投资者适当性管理办法</a> · <a href="https://xzfg.moj.gov.cn/front/law/detail?LawID=1059">证券公司风险处置条例</a></li>
+<li>股票的概念、性质和特征。<a href="https://tftax.com/upload/cjsw/202511/biras8402c38/biras8402c38.pdf">2025 版测试大纲第四章</a> · <a href="https://www.csrc.gov.cn/csrc/c100211/c1452114/content.shtml">证监会股票投教</a></li>
+<li>两科题库补充范围。<a href="https://www.investor.org.cn/zczx/qwzx/hyxhfb/202512/t20251204_875461.shtml">2025 版测试大纲发布公告</a> · <a href="https://www.pbc.gov.cn/eportal/fileDir/history_file/files/att_11623_1.pdf">人民银行货币政策执行报告</a> · <a href="https://www.csrc.gov.cn/shenzhen/c105614/c7521985/content.shtml">证监会期货每日结算说明</a> · <a href="https://www.nhc.gov.cn/bgt/gwywj2/202307/90c0076a435b43fdb7bb81d92692ab49.shtml">《私募投资基金监督管理条例》</a></li>
 <li>公开回忆题样本。<a href="https://m.233.com/zq/jczhenti/202607/30095451183441.html">2024 金融</a> · <a href="https://m.233.com/zq/lawzhenti/202607/29093410971465.html">2024 法规</a> · <a href="https://m.233.com/zq/jczhenti/202608/31094503987749.html">2025 金融</a> · <a href="https://m.233.com/zq/lawzhenti/202607/31104046924181.html">2025 法规</a> · <a href="https://www.233.com/zq/jczhenti/202610/04104523480631.html">2026 金融</a> · <a href="https://www.233.com/zq/lawzhenti/202609/18085528669531.html">2026 法规</a></li>
 <li>近期题型与板块参考。<a href="https://www.233.com/zq/jinrong/xueba/202609/24161559650781.html">2026 年 9 月金融考情</a> · <a href="https://www.233.com/zq/law/xueba/202609/24094335321872.html">2026 年 9 月法规考情</a></li>
 </ul>
@@ -181,7 +719,7 @@ const notes = [
 ["F", "A", "市场与机构", "直接融资 vs 间接融资", "分直接、间接融资就看谁欠谁钱，公司发债直接欠投资者的钱是直接融资，银行收存款再放贷、两边分别欠钱是间接融资。", "买企业债，企业直接欠你钱。存银行再由银行放贷，银行欠你存款，企业欠银行贷款。", "券商帮企业卖新债叫承销。企业仍直接欠买债的人钱，所以是直接融资。", ["融资＝筹钱。债权＝按约要求别人还钱的权利。股权＝持有公司一部分股份。", "直接融资中，出资者直接取得企业的债权或股权。间接融资中，银行与储户、借款人分别建立关系。"], "券商帮甲企业卖出新债，投资者持有甲企业的债券。是否因券商在场就归入间接融资？", "属于直接融资。题目里投资者最终拥有对甲企业的债权。把参与交易的券商和借贷关系中的银行区分开。", "给你「公司发债、券商帮卖」或「银行吸收存款再放贷」，问哪种是直接融资。"],
 ["F", "A", "市场与机构", "货币市场 vs 资本市场", "分类先看融资期限，一年以内的短期周转通常归货币市场，股票和中长期债券归资本市场。", "银行借 7 天用来周转，归货币市场。企业发 5 年债券建厂，归资本市场。", "股票一般没有到期日，仍归资本市场。判断债券时先看期限。", ["货币市场常见工具：短期国库券、商业票据、同业拆借、短期回购。期限通常在一年以内。", "资本市场常见工具：股票、中长期债券。"], "某公司一边发行六个月期商业票据，一边发行五年期公司债。分别归哪类？", "六个月票据用于短期融资，归货币市场。五年期债券用于中长期融资，归资本市场。", "把七天同业拆借、五年期债券和股票放在一起，让你找出哪些属于货币市场。"],
 ["F", "A", "市场与机构", "四类机构职责", "按动作认机构，证监会依法监管，证券业协会管行业自律，交易所把买卖单配对，中国结算记录证券归谁并办理结算。", "你在券商 App 下单，券商报单，交易所撮合。成交后要处理股票记在谁名下、钱和股票怎么交给双方，这是登记结算。", "客户用来交易的钱由商业银行第三方存管；题目问证券登记、集中存管和结算，则找证券登记结算机构。", ["行业自律＝按行业或市场规则管理参与者。证券业协会有行业自律职能，交易所也有市场自律职能。", "撮合＝把合适的买单和卖单配成一笔交易。交收＝成交后按规则交钱、交证券。"], "客户成交后，谁负责证券登记结算？客户用来交易的资金由哪类机构第三方存管？", "证券登记结算看中国结算。客户交易结算资金第三方存管看商业银行。题目在考「证券」和「资金」两个对象。", "问谁负责行业自律、谁撮合买卖、谁负责证券登记和交收。"],
-["F", "A", "股票", "普通股、优先股、债券", "问公司清算谁先拿钱，先依法还债，剩下的由优先股按条款先分，再轮到普通股。", "", "优先股的「优先」是相对于普通股。股息优先按发行条款处理，也可能没有股息可分。", ["普通股＝通常能投票参与公司决策的股份。", "优先股＝按条款优先分股息和剩余财产的股份，表决权可能受限。", "债券＝借钱给发行人的凭证，持有人享有按约要求还本付息的权利。清算就是公司结束经营时清理资产和债务。"], "简化场景下，公司处置完财产后不足以偿清债务。优先股股东能否凭「优先」先拿一笔钱？", "不能。优先股的优先是相对于普通股。支付债务后如无剩余，优先股也没有剩余财产可以分配。", "公司关门清算，问债权人、优先股股东、普通股股东谁先拿钱；也可能问优先股优先分什么。"],
+["F", "A", "股票", "普通股、优先股、债券", "优先股和普通股都是股权类工具，买债券取得的是债权，公司清算先偿债，再按条款由优先股股东和普通股股东分剩余财产。", "公司清算后有 100 元，欠债 80 元，先还债。剩下 20 元才轮到股东分，优先股是在股东这队排前面。", "优先股的「优先」是相对于普通股。股息优先按发行条款处理，也可能没有股息可分。", ["普通股＝通常能投票参与公司决策的股份。", "优先股是公司的一类股份，持有人是股东，所以考试归为股权类工具。它按条款优先分股息和剩余财产，表决权可能受限。", "债券＝借钱给发行人的凭证，持有人享有按约要求还本付息的权利。清算就是公司结束经营时清理资产和债务。"], "简化场景下，公司处置完财产后不足以偿清债务。优先股股东能否凭「优先」先拿一笔钱？", "不能。优先股的优先是相对于普通股。支付债务后如无剩余，优先股也没有剩余财产可以分配。", "问优先股是股权类还是债权类，或给公司清算的情境，问债权人、优先股股东和普通股股东谁先拿钱。"],
 ["F", "A", "股票", "现金分红、送股、转增", "看股东拿到什么，拿现金叫现金分红，拿股份再看来源，通常利润转股本叫送股，资本公积转股本叫转增。", "公司发 100 股，面值 1 元、售价 5 元。忽略费用，500 元里 100 元记股本，另外 400 元是股本溢价，通常记资本公积。", "10 股转增 10 股后，股数翻倍，每股参考价也会调整。不能只凭股数判断财富增加。", ["送股通常从可分配利润转成股本，转增通常从资本公积转成股本。", "除息＝派发现金后调整价格参考值。除权＝因股数等权益变化调整价格参考值。"], "原有 100 股，每股 10 元。公司只实施每 10 股转增 10 股。忽略市场波动，股数和参考价怎么变？", "股数变成 200 股，理论参考价约为 5 元。按参考价计算仍约为 1,000 元，不能只数新增的 100 股来算获利。", "看到「用利润或资本公积增加股本」，判断是送股还是转增；看到股数翻倍，判断总市值是否也翻倍。"],
 ["F", "B", "股票", "股票指数、委托与成交", "遇到排队题，买价高、卖价低的先排，同一边同价才比时间，遇到指数题则记住指数涨只代表这一组股票的整体表现。", "两个人分别出 10 元和 10.10 元买，10.10 元的买单先排。两个人分别要 10.20 元和 10.10 元卖，10.10 元的卖单先排。", "排在前面仍要等对手报价符合条件。指数上涨也不能推出里面每只股票都涨。", ["限价委托＝你设一个可接受的价格。买单设最高愿付价，卖单设最低愿收价。", "股票指数＝用一组股票算出的整体指标。沪深 300 看境内一组股票，标普 500 看美国一组股票。"], "买方甲先报 10.00 元，乙后来报 10.10 元。在其余条件相同的竞价队列里，谁优先？", "乙。先比较报价，买入报价越高越优先。两人报价相同时才看谁先提交有效申报。", "给两张买单或卖单，问谁排前面；也可能问指数上涨能否推出每只成分股都涨。"],
 ["F", "A", "债券", "债券价格与市场利率", "旧的固定利率债券按合同付钱，其他条件不变时，市场要求的收益率越高，买家今天肯付的价格就越低。", "旧债一年后付 103 元。新债花 100 元一年后就能拿 105 元，买家就只愿为旧债付约 98.10 元。一年后仍收 103 元，收益率也约为 5%。", "题目说市场收益率变动，先看价格方向。题目若说发行人可能还不起钱，还涉及信用风险。", ["票息＝合同写好的利息。把未来会收到的本金和票息合起来，就是未来现金流。", "折现＝从未来收款倒推今天值多少。例子中用 103÷1.05≈98.10 元。"], "一年后一次收回 105 元的债券，要求收益率从 5% 升至 10%。理论价格怎么变？", "原价 105÷1.05＝100 元。新价 105÷1.10≈95.45 元。未来仍收 105 元，变的是买入时愿意支付的价格。", "告诉你市场收益率升高，问手里那张固定利率债券是涨价、跌价，还是合同利息变了。"],
@@ -206,8 +744,27 @@ const notes = [
 ["L", "A", "业务规范", "融资、融券与回购", "借钱买是融资，借券卖是融券，做到回购题就找资金流向，正回购方拿钱、逆回购方出钱。", "借来股票按 10 元卖，涨到 12 元才买回还券，每股多花 2 元。这个买回来还券的动作叫回补。", "融资还资金，融券还证券。区分正逆回购只看谁先拿到钱。", ["融资融券合称「两融」，按约归还标的并支付相关费用。", "债券质押式回购里，债券可理解为融资担保。正回购方融资，逆回购方融出资金，期末按约处理。"], "借 100 股以每股 10 元卖出，后来涨至 12 元才买回。不计费用，盈亏多少？", "融券卖得 1,000 元，买回花 1,200 元，因此亏 200 元。先卖后买，价格下跌才有价差收益。", "看客户借的是钱还是股票，选融资或融券；看回购里谁先拿到钱，分正回购和逆回购。"],
 ["L", "A", "违法与职业道德", "内幕交易、操纵市场和损害客户利益", "看到利用重大未公开消息交易就想内幕交易，看到做假单或造假成交影响市场就想操纵，看到没获客户委托就用其账户下单就想损害客户利益。", "员工知道重大重组还没公开就买入，先看内幕交易。用自己控制的两个账户互买互卖、制造成交假象，先看操纵市场。", "一次正常撤单可以是交易需要。「不以成交为目的」「频繁或大量申报撤单」才是这类题要圈的线索。", ["内幕信息要看重大性和是否已经公开，并结合利用信息交易、泄露或建议交易等行为。", "对倒＝实控账户互相成交。擅自为客户下单另考损害客户利益，即使碰巧赚钱也要检查授权。"], "甲利用未公开的重大重组消息下单。乙为制造活跃假象在两个实控账户之间成交。如何区分？", "甲的优势来自先知道重大消息，按内幕交易判断。乙通过制造成交影响市场，按操纵市场判断。", "给你提前知道重大消息下单、两个实控账户互相成交、员工擅用客户账户三种情形，让你分辨违规类型。"],
 ["L", "A", "违法与职业道德", "账户出借、信息披露与利益冲突", "看题目动了哪条线，用别人账户看是否违规借用，只给熟人重大消息看公平披露，私人利益影响判断看利益冲突。", "朋友用你的账户下单，看账户出借。重大消息只先告诉熟人，看公平披露。研究员推荐自己持有的股票，看利益冲突。", "朋友同意也不能使违规借用变合规。利益冲突按具体规则回避、报告或披露。", ["信息披露＝按规定把应公开的信息告诉投资者，要求真实、准确、完整、及时、公平。", "利益冲突＝私人利益可能影响本应客观做出的判断。"], "上市公司负责人提前把重大重组消息只告诉关系密切的投资者。题目至少会涉及什么？", "优先检查公平披露和未公开信息管理。若题目继续说该投资者利用消息交易，还需另行判断内幕交易。", "给你朋友借账户、重大消息只告诉熟人、研究员推荐自己持有的股票，让你找出对应的违规或合规风险。"],
-["L", "B", "违法与职业道德", "纪法知识与廉洁从业", "先认行为人的身份来找适用规则，再看他有没有利用职务或业务机会谋取不正当利益，钱交给亲属也一样要判断。", "员工用推荐项目换好处费，让对方把钱转给亲属。钱经过亲属，仍要看实际利益归谁、是否借了业务机会。", "政策原文题按纪法大纲里的用词记。责任题先认人，再认行为，同一件事可涉及几类责任。", ["党纪看党员等适用对象，政务处分看公职人员等对象，证券从业人员还要看行业规则。", "政策配对示例：高水平社会主义市场经济体制，是中国式现代化的重要保障。"], "证券业务人员要求客户把一笔好处费转给亲属，以换取业务便利。应从哪里入手判断？", "先识别钱款是否用于换取业务便利，再看从业人员是否借职责或业务谋取不正当利益。由亲属代收仍要审查廉洁从业责任。", "给证券从业人员收好处费或经亲友代收的情境，让你判断是否涉及廉洁从业；也可能问某类纪律规则适用于谁。"]
+["L", "B", "违法与职业道德", "纪法知识与廉洁从业", "先认行为人的身份来找适用规则，再看他有没有利用职务或业务机会谋取不正当利益，钱交给亲属也一样要判断。", "员工用推荐项目换好处费，让对方把钱转给亲属。钱经过亲属，仍要看实际利益归谁、是否借了业务机会。", "政策原文题按纪法大纲里的用词记。责任题先认人，再认行为，同一件事可涉及几类责任。", ["党纪看党员等适用对象，政务处分看公职人员等对象，证券从业人员还要看行业规则。", "政策配对示例：高水平社会主义市场经济体制，是中国式现代化的重要保障。"], "证券业务人员要求客户把一笔好处费转给亲属，以换取业务便利。应从哪里入手判断？", "先识别钱款是否用于换取业务便利，再看从业人员是否借职责或业务谋取不正当利益。由亲属代收仍要审查廉洁从业责任。", "给证券从业人员收好处费或经亲友代收的情境，让你判断是否涉及廉洁从业；也可能问某类纪律规则适用于谁。"],
+["F", "B", "题库补充", "央行的三种常见货币政策工具", "看到央行买债就想央行付钱、市场钱变多，央行卖债就想央行收钱、市场钱变少。", "银行原本每收 100 元存款须留 8 元，比例提高后要多留一些，可用于放贷的资金通常会减少。", "三种工具针对银行体系的资金。上市公司分红属于公司的事情。", ["存款准备金＝银行按规定保留的一部分资金；法定比例提高，其他条件相同，通常会压缩放贷空间。", "公开市场操作＝央行在市场上买卖证券或做回购等，调节银行体系可用资金。", "再贴现＝银行拿已贴现的合格票据向央行换资金。贴现可以理解为持未到期的票据提前拿钱。"], "央行在公开市场把债券卖给金融机构，其他条件不变，是投放还是回笼资金？", "回笼。金融机构付款给央行，银行体系可用资金通常减少。", "问央行买卖债券会投放还是回笼资金，或从选项中找存款准备金、再贴现和公开市场操作。"],
+["F", "B", "题库补充", "主板、科创板、创业板与 A 股、B 股、H 股", "区分板块看主要服务谁，区分 B 股、H 股看在哪里上市以及属于哪类股份。", "一家中国内地注册企业的股份在香港上市，想到 H 股；「境内上市外资股」则是教材里识别 B 股的用语。", "按上市地分类和按股东权利分类是两条线，优先股与普通股看权利。", ["主板一般主要服务较成熟的大型企业。科创板突出科技创新属性，创业板主要服务成长型创新创业企业。板块定位和具体上市门槛分开看。", "A 股通常指人民币普通股票，B 股是境内上市外资股，H 股是内地注册企业在香港上市的股份。"], "一家境内注册企业在香港发行上市，此类股份在题干里通常叫什么？", "通常称 H 股。题眼是「境内注册」和「香港上市」。", "看到成熟大型企业、科技创新企业，问所对应的典型板块，或给出公司注册地和上市地辨认股份类别。"],
+["F", "B", "题库补充", "配股、增发与股票估值", "配股是给原股东按规则出钱买新股的机会，市盈率用股价除以每股收益，市净率用股价除以每股净资产。", "每股 12 元，每股收益 2 元，每股净资产 4 元。市盈率是 6 倍，市净率是 3 倍。", "配股是认购新股，送股才通常不需另外支付认购款。估值题里的「盈」对应收益，「净」对应净资产。", ["配股看股权登记日按规则登记在册的股东。登记日就是确定哪些持有人享有这次权益的日期。", "增发是上市公司再发新股，配股是面向原股东的一种新股发行安排。", "基础计算中，每股收益用相应净利润除以题目给的股数口径，常见口径是加权平均普通股股数。"], "股价 18 元，每股收益 3 元，每股净资产 6 元，市盈率和市净率各是多少？", "市盈率 18÷3＝6 倍，市净率 18÷6＝3 倍。", "问配股给谁、需不需要出钱，或给股价、每股收益、每股净资产，判断指标和算式。"],
+["F", "B", "题库补充", "金融债、浮息债与外国债券", "金融债看发行人，浮息债看票息是否随参考利率调整，外国债券名称看发行市场和当地币种。", "银行以自己名义发债筹钱，买家对银行有债权，是金融机构自身的直接融资。", "同一张债券可以同时按发行人、付息方式和市场分类。", ["金融债券的发行人可以是依法具备条件的金融机构。浮动利率债券按条款随参考利率调整票息，「利差」是加在参考利率上的约定差值。", "境外发行人在美国境内发美元债常称扬基债，在日本境内发日元债常称武士债，在中国境内发人民币债常称熊猫债。"], "境外公司在日本市场发日元债，题目给出扬基债和武士债，应选哪个？", "选武士债。定位时同时圈出发行地日本和计价币种日元。", "给发债者、票息条款或发行地与币种，让你分别判断债券类别。"],
+["F", "B", "题库补充", "ETF 的溢价和折价", "成交价高于参考净值叫溢价，低于参考净值叫折价，百分比通常用参考净值作分母。", "一份 ETF 市价 10 元，参考净值 10.20 元，意味着买家在交易所花的钱比份额参考价值少 0.20 元。", "题目给的是同一时点的参考净值时直接比较。折价不意味着一定能赚钱。", ["净值是按基金资产算出来的每份价值，成交价是买卖双方在交易所撮合出来的价格。", "溢价率＝（成交价－参考净值）÷参考净值；算出负数是折价，题目问折价幅度时通常报正的幅度。"], "ETF 成交价 10.50 元，参考净值 10 元，是溢价还是折价，幅度多少？", "溢价 5%，算式是（10.50－10）÷10＝5%。", "给交易所成交价和基金份额净值，问成交价偏高还是偏低，再算差多少。"],
+["F", "B", "题库补充", "套期保值、多头和空头", "未来要买货、怕涨价，用买入期货对冲；未来要卖货、怕跌价，用卖出期货对冲。", "面包厂三个月后才要买小麦。如果小麦涨价，买现货变贵，期货多头可能赚钱，能抵掉一部分成本上升。", "先看企业未来在现货市场是买方还是卖方，再找它怕涨还是怕跌。", ["多头＝先买入该合约，价格上涨时通常对它有利。空头＝先卖出该合约，价格下跌时通常对它有利。", "套期保值＝用另一笔交易抵掉原有风险。现货和期货价格不一定完全同步，对冲效果可能不完全。"], "铜矿三个月后出售铜，担心售价下跌，应建立期货多头还是空头？", "空头。现货跌价不利于铜矿，卖出的期货头寸在期货价格下跌时可能获利。", "给企业未来要买或要卖商品的情境，让你判断该买期货还是卖期货，或判断这算不算套期保值。"],
+["F", "B", "题库补充", "看涨、看跌与期权净收益", "看涨买到的是买的权利，看跌买到的是卖的权利，计算净收益时都要扣已付的权利金。", "看跌期权允许用 30 元卖一股，市价 25 元，行权的好处是每股 5 元。如果之前付了 2 元权利金，净收益是 3 元。", "行权有好处和整笔交易赚钱是两个问题。能省 1 元但权利金花了 2 元，行权后整笔仍亏 1 元。", ["行权价＝合约约定将来可以买或卖的价格。权利金＝买到这项选择权的费用。", "到期时看涨的行权价值看市价减行权价，看跌看行权价减市价，差额为负时行权价值按零算。"], "看涨期权行权价 10 元，到期市价 11 元，买方付了 2 元权利金；忽略其他费用，行权后净赚多少？", "行权能获得 1 元价值，扣除权利金 2 元后，净亏 1 元。", "给行权价、到期市价和权利金，问买方是否值得行权，再算扣除成本后赚多少。"],
+["F", "B", "题库补充", "战略风险、交易对手信用风险和压力测试", "方向选错是战略风险，合同对手未履约是交易对手信用风险，设定较不利的情境看能否承受是压力测试。", "公司以为某产品会畅销，大量投产却没人买，可能是战略判断失误。已经与另一家签了金融合同，对方却不付款，是对手违约。", "对手信用风险属于信用风险的一种。敏感性分析和压力测试都依赖设定条件。", ["战略风险看经营目标、发展方向或资源投错。交易对手信用风险看金融合同结清前对方能否履行。", "只改利率看投资价值怎么动，可做单因素敏感性分析；给出整体市场暴跌等不利情形看损失，可做压力测试。"], "某场外合同目前对甲有利，合同结清前乙应付的钱没付，甲直接面对什么风险？", "交易对手信用风险。题眼是合同对手乙没有履行约定付款义务。", "问管理层押错经营方向、场外合同对手违约分别是哪类风险，或让你区分敏感性分析和压力测试。"],
+["L", "B", "题库补充", "股东会、非货币出资与法定公积金", "有限公司的权力机构是股东会，可估价且可依法转让的财产可以按规定出资，法定公积金转增后至少留转增前注册资本的 25%。", "转增前注册资本 8,000 万元，法定公积金转成股本后，该项公积金至少还要留 2,000 万元。", "25% 的基数看转增前注册资本，不看转增后的数。", ["股东会由股东组成，负责章程修改等公司重大事项。", "非货币出资可以是符合条件的设备、知识产权、土地使用权等，核对能否估价、依法转让以及是否有禁止规定。", "法定公积金是公司依法从税后利润中提取的公积金。考留存下限时，把转增前注册资本乘 25%。"], "公司转增前注册资本 4,000 万元，法定公积金转增后至少留多少？", "留至少 1,000 万元，用转增前的 4,000 万元乘 25%。", "问有限公司的权力机构、设备和知识产权能否出资，或给注册资本计算法定公积金转增后的最低留存额。"],
+["L", "B", "题库补充", "期货保证金与当日无负债结算", "保证金是履约用的资金，期货每个交易日按结算价算盈亏并划转款项，叫当日无负债结算。", "今天的期货持仓按结算价算出亏 1,000 元，结算时会从账户扣除相应款项。即使还未平仓，也要算今天的盈亏。", "当日结算不等于每天把合约卖掉，也不等于交易没有损失。", ["结算价是交易所按规则用于结算的价格。平仓是结束手里的期货头寸。", "每个交易日结束后依规结算合约盈亏、保证金和手续费。保证金不足时按规则处理。"], "期货还没到期，交易所每日核算并划转盈亏，这是什么制度？", "当日无负债结算。题眼是每天按结算价算清当天有关款项。", "给出期货交易按当天结算价计算盈亏并划款的描述，让你选出结算制度。"],
+["L", "B", "题库补充", "证券市场禁入与行业自律", "正式的证券市场禁入措施由证监会依法采取，协会和交易所按各自规则实施自律管理。", "题目把证监会、协会、券商营业部和存管银行放在一组选项里，看到「依法采取证券市场禁入」就找证监会。", "限制从业或交易的具体范围、期限，按适用规定和决定判断。", ["证券市场禁入针对依法认定的相关情形，可能涉及从事证券业务、担任有关职务或进行证券交易。", "行业自律是协会、交易所等依规则管理成员和参与者，常见考法是把它跟行政监管主体混在同组。"], "培训机构声称自己能依法决定对某人采取证券市场禁入，这个说法对吗？", "错。正式市场禁入由中国证监会依法决定。", "问严重证券违法时谁能依法采取证券市场禁入，或区分行政监管和行业自律。"],
+["L", "B", "题库补充", "私募基金、合格投资者和专业化管理", "私募向合格投资者非公开募集，管理人要配备与投资管理、风控和合规职责相匹配的有经验人员。", "私募基金管理人把认购广告向不特定公众随意公开投放。即使广告里写了「风险自负」，也要检查它是否违反非公开募集要求。", "管理人登记、基金备案是不同对象。完成这些手续也不代表监管方给基金收益背书。", ["合格投资者＝满足适用条件、具有相应识别和承担风险能力的投资者。考试问具体金额时看题干对应规则。", "专业化管理＝让具有相应从业经历的高级管理人员负责投资管理、风险控制、合规等工作。"], "私募合规负责人最应有与职责对应的从业经历，还是向投资者保证收益的能力？", "选与职责对应的从业经历。专业化管理看人员经验与职责匹配。", "问私募向谁募集、能否向社会公开宣传，或问投资、风控、合规负责人要有什么经历。"],
+["L", "B", "题库补充", "董事会审议合规制度与三道业务监控防线", "合规基本制度经董事会审议；三道业务监控防线按一线岗位、岗位部门制衡、独立监督来分。", "与资金直接接触的重要岗位由两人负责，是第一道；不同岗位相互复核，是第二道；独立部门抽查并反馈，是第三道。", "董事会审议基本制度，员工仍要对自己办的业务负责。", ["第一道侧重重要一线岗位双人、双职、双责。第二道侧重岗位和部门之间的制衡。", "第三道是独立监督检查部门开展监控、检查和反馈。题干出现「独立检查」时先想到第三道。"], "券商安排独立部门到营业部检查过往经纪业务并反馈问题，属于第几道？", "第三道。重点是检查部门独立于经办业务。", "问谁审议合规管理基本制度，或给岗位双人、部门互查、独立检查，让你辨认第几道业务监控防线。"]
 ];
+const stockBasics = [
+["F", "A", "股票", "股票的性质：一张股票代表什么", "一道题可以同时说股票是有价、要式、证权、资本和综合权利证券；看到「证明已有股东权利」就选证权证券。", "你买入一家公司的股票，登记后股票凭证说明你持有多少股份，凭这份股份可以按规则领股息、投票。", "「证权证券」是证明权利。题目若说在证券上记载才创设权利，这句话对股票通常判错。", ["有价证券：它代表有财产价值的权利。你手里的股票代表一份公司的股份。", "要式证券：股票的形式和记载事项要符合法律要求，可以依法采用电子等形式。", "证权证券：证明持有人享有股东权利。「证」就是证明。", "资本证券：它代表投入公司的资本，可以让持有人获得投资收益。", "综合权利证券：一份股份可同时带来分红、表决、分配剩余财产等股东权利。"], "题目说「股票是证明股东已有权利的凭证」。它考的是要式证券还是证权证券？", "证权证券。题目问凭证和股东权利的关系。「要式」问的是形式和记载有没有法定要求。", "给一句描述，让你选对应的性质，例如「证明已有的股东权利」对应哪个词，或者将「证权」和「设权」放在一起判断正误。"],
+["F", "A", "股票", "股票的五个特征：收益、风险、流动、永久、参与", "看题目描述哪个动作，领分红或赚差价是收益性，可能亏钱是风险性，能转手是流动性，本身没有到期日是永久性，能参与决策是参与性。", "你以 10 元买一股，后来领了 0.50 元股息，再以 12 元卖出。股息和 2 元价差都是收益；如果只卖到 8 元，价格下跌也可能使你亏钱。", "「永久」说的是股票本身一般没有到期日。流动性也有强有弱，能依法转让不保证随时能以理想价格成交。", ["收益性：有机会获得股息、红利，或靠卖价高于买价赚差价（资本利得）。这是股票最基本的特征。", "风险性：未来能不能赚、赚多少都不确定，本金也可能亏损。", "流动性：可依法转让变现。变现就是把持有的股票卖成钱。", "永久性：持股一般没有到期还本金的安排。上市股票常见的退出方式是在市场转卖。", "参与性：普通股股东可按规定在股东会上表决，参与重大事项决策。"], "「股票可卖给别的投资者换回钱」和「股票没有固定到期日」分别说的是哪两个特征？", "前者是流动性，后者是永久性。一个看能否转手，另一个看有没有合同约定的到期还本日。", "给你收股息、低价卖出、转手变现、没有到期日或股东投票的情境，让你辨认是哪项特征，也可能问哪项是最基本的特征。"]
+];
+const stockBasicsIndex = notes.length;
+notes.push(...stockBasics);
 // 每题依次记录题型、题干、选项、正确选项索引与解析。题目使用独立情境和措辞。
 const single = "单选";
 const multi = "多选";
@@ -676,13 +1233,19 @@ function element(tag, content, className) {
   return node;
 }
 
+// Keep existing lesson links stable while displaying stock basics first in the stock chapter.
+const lessonEntries = notes.map((note, index) => ({note, index}));
+const stockBasicsEntries = lessonEntries.splice(stockBasicsIndex, stockBasics.length);
+const firstStockLesson = lessonEntries.findIndex(({note}) => note[2] === "股票");
+lessonEntries.splice(firstStockLesson, 0, ...stockBasicsEntries);
+
 function renderContents() {
   const target = byId("chapter-links");
   for (const [code, name] of Object.entries(subjects)) {
     const group = element("div");
     group.append(element("h3", name));
     const topics = new Set();
-    notes.forEach(([subject, , topic], index) => {
+    lessonEntries.forEach(({note: [subject, , topic], index}) => {
       if (subject !== code || topics.has(topic)) return;
       topics.add(topic);
       const link = element("a", topic);
@@ -697,9 +1260,9 @@ function renderNotes() {
   const subject = byId("subject").value;
   const priority = byId("priority").value;
   const words = byId("query").value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  const matches = notes.map((note, index) => ({note, index})).filter(({note}) =>
+  const matches = lessonEntries.filter(({note}) =>
     (!subject || note[0] === subject) &&
-    (!priority || note[1] === priority) &&
+    (!priority || (priority === "extra" ? note[2] === "题库补充" : note[1] === priority)) &&
     words.every(word => note.join(" ").toLowerCase().includes(word))
   );
   const target = byId("cards");
@@ -902,6 +1465,24 @@ function renderScore(selections) {
   byId("show-review").hidden = false;
 }
 
+// Match the terms used in a question stem to the relevant lesson after submission.
+const reviewTopics = [
+  [/优先股/, 5],
+  [/公开市场|准备金率|再贴现|货币政策工具/, 31],
+  [/H 股|B 股|境内上市外资股|在香港上市|成熟企业|多层次资本市场/, 32],
+  [/配股|每股收益|每股净资产|市盈率|市净率/, 33],
+  [/金融债券|浮动利率债券|参考利率加利差|外国债券|日本市场|美国境内市场/, 34],
+  [/ETF.{0,24}(?:净值|溢价|折价)|(?:溢价|折价).{0,16}ETF/, 35],
+  [/套期保值|(?:期货|现货).{0,20}(?:对冲|多头|空头)|原油生产商/, 36],
+  [/行权价|看涨期权|看跌期权|权利金/, 37],
+  [/战略风险|管理层错误判断|压力测试|场外.{0,12}对手/, 38],
+  [/法定公积金|出资的财产|作价出资|权力机构|设备用于/, 39],
+  [/当日无负债结算|每日结算价|期货.{0,12}保证金/, 40],
+  [/市场禁入/, 41],
+  [/私募(?:投资)?基金|合格投资者/, 42],
+  [/合规管理的?基本制度|业务监控防线/, 43]
+];
+
 function renderReview() {
   const selections = records[paperIndex].selections;
   const marks = grade(selections);
@@ -919,6 +1500,13 @@ function renderReview() {
       element("div", "正确答案　" + format(key)),
       element("div", explanation, "muted")
     );
+    const related = reviewTopics.find(([pattern]) => pattern.test(prompt));
+    if (related) {
+      const lessonNumber = related[1];
+      const link = element("a", "回讲义看「" + notes[lessonNumber - 1][3] + "」");
+      link.href = "#lesson-" + lessonNumber;
+      item.append(link);
+    }
     target.append(item);
   });
   if (!target.children.length) target.append(element("li", "本卷没有错题或漏答。"));
@@ -1025,6 +1613,112 @@ timerButton.addEventListener("click", () => {
   updateTimer();
   interval = setInterval(updateTimer, 250);
 });
+// Short cues readable directly on the diagram, even with all branch details closed.
+const mapCues = {
+  "map-f1": ["融资方式 · 发行与流通", "IMF · 世界银行"],
+  "map-f2": ["央行工具 · 金融机构", "主板 · 科创板 · 创业板"],
+  "map-f3": ["谁通过发证券筹钱", "个人与机构", "券商 · 会计师 · 律师", "交易所 · 协会 · 中国结算", "投服中心 · 保护基金", "证监会依法监管"],
+  "map-f4": ["五种性质 · 五个特征", "注册制 · IPO · 配股", "价格优先 · 时间优先", "市盈率 · 市净率"],
+  "map-f5": ["发行主体 · 票息条款", "谁借钱 · 怎么发行", "市场转让 · 回购", "价格与收益率"],
+  "map-f6": ["开放封闭 · ETF 与 LOF", "认购 · 申购 · 赎回", "份额净值 · 基金费用", "管理 · 托管 · 监督", "定期报告 · 临时公告", "非公开募集", "项目运营 · 现金流"],
+  "map-f7": ["标的 · 对冲 · 杠杆", "统一规格 · 选择权", "自行约定 · 交换付款", "信用保护 · 结构化产品"],
+  "map-f8": ["识别 · 衡量 · 应对", "风险偏好 · 限额", "价格变动 · 敏感性", "对方违约", "卖不出去 · 筹不到钱", "系统或人员 · 声誉 · 战略", "授权 · 监测 · 整改"],
+  "map-l1": ["法律 · 规章 · 自律规则", "人数 · 出资 · 表决", "普通和有限合伙人", "公开发行 · 承销", "基金三方 · 财产独立", "保证金 · 每日结算", "准入 · 客户资产保护", "托管 · 接管 · 重组", "合格投资者 · 备案"],
+  "map-l2": ["三道防线 · 隔离墙", "净资本 · 风控指标", "母公司和子公司一起看", "了解 · 匹配 · 留痕", "尽职调查 · 异常报告", "系统、数据和外包责任", "权限 · 报告 · 恢复"],
+  "map-l3": ["按客户指令下单", "投资建议 · 研究报告", "并购重组 · 专业意见", "卖新证券 · 核查材料", "借钱买 · 借券卖", "券商自己承担盈亏", "按合同管理客户资产", "推荐挂牌 · 场外业务", "做市 · 资产证券化"],
+  "map-l4": ["擅自发行 · 欺诈发行", "内幕 · 操纵 · 擅自下单"],
+  "map-l5": ["合规 · 诚信 · 专业 · 稳健", "借业务输送不当利益", "诚信记录 · 证监会禁入", "公平 · 保密 · 利益冲突"],
+  "map-j1": ["金融工作 · 改革与规划", "八项规定 · 党纪处分", "政务处分 · 商业贿赂"]
+};
+
+function mountChapterDiagram(chapter) {
+  const list = chapter.querySelector(".map-branches");
+  const branches = [...list.children];
+  const chapterTitle = chapter.querySelector(":scope > summary").textContent;
+  const diagram = element("div", "", "map-diagram");
+  diagram.setAttribute("role", "group");
+  diagram.setAttribute("aria-label", chapterTitle + "思维导图");
+  const namespace = "http://www.w3.org/2000/svg";
+  const wires = document.createElementNS(namespace, "svg");
+  wires.classList.add("map-wires");
+  wires.setAttribute("aria-hidden", "true");
+  const left = element("div", "", "map-side");
+  const right = element("div", "", "map-side");
+  const center = element("div", chapterTitle.replace(/^第[一二三四五六七八]章 |^补充 /, ""), "map-center");
+  const hint = element("p", "点任一分支查看考点。", "map-branch-hint");
+
+  const points = branches.map((branch, index) => {
+    const point = element("button", "", "map-point");
+    point.append(element("span", branch.querySelector("h4").textContent),
+      element("small", mapCues[chapter.id][index], "map-point-cue"));
+    point.type = "button";
+    branch.id = chapter.id + "-branch-" + (index + 1);
+    branch.hidden = true;
+    point.setAttribute("aria-controls", branch.id);
+    point.setAttribute("aria-pressed", "false");
+    (index < Math.ceil(branches.length / 2) ? left : right).append(point);
+    point.addEventListener("click", () => {
+      const isSelected = point.getAttribute("aria-pressed") === "true";
+      points.forEach((button, i) => {
+        const active = !isSelected && index === i;
+        button.setAttribute("aria-pressed", String(active));
+        branches[i].hidden = !active;
+      });
+      hint.hidden = !isSelected;
+      drawWires();
+    });
+    return point;
+  });
+  diagram.append(wires, left, center, right);
+  list.before(diagram, hint);
+
+  function drawWires() {
+    const bounds = diagram.getBoundingClientRect();
+    if (bounds.width === 0 || bounds.height === 0) return;
+    const root = center.getBoundingClientRect();
+    const originY = root.top + root.height / 2 - bounds.top;
+    wires.replaceChildren();
+    for (const point of points) {
+      const box = point.getBoundingClientRect();
+      const isLeft = point.parentNode === left;
+      const x0 = (isLeft ? root.left : root.right) - bounds.left;
+      const x1 = (isLeft ? box.right : box.left) - bounds.left;
+      const y1 = box.top + box.height / 2 - bounds.top;
+      const turn = (x0 + x1) / 2;
+      const wire = document.createElementNS(namespace, "path");
+      wire.setAttribute("d", "M " + x0 + " " + originY + " C " + turn + " " + originY +
+        ", " + turn + " " + y1 + ", " + x1 + " " + y1);
+      if (isLeft) wire.style.setProperty("--map-wire", "#668b77");
+      else wire.style.setProperty("--map-wire", "#6f8cac");
+      wire.classList.toggle("map-wire-active", point.getAttribute("aria-pressed") === "true");
+      wires.append(wire);
+    }
+  }
+
+  const observer = new ResizeObserver(drawWires);
+  observer.observe(diagram);
+  drawWires();
+}
+
+const mapChapters = [...document.querySelectorAll(".map-chapter")];
+mapChapters.forEach(mountChapterDiagram);
+byId("expand-maps").addEventListener("click", () => {
+  for (const chapter of mapChapters) chapter.open = true;
+});
+byId("collapse-maps").addEventListener("click", () => {
+  for (const chapter of mapChapters) chapter.open = false;
+});
+function openLinkedChapter() {
+  const chapter = byId(location.hash.slice(1));
+  if (chapter?.classList.contains("map-chapter")) chapter.open = true;
+}
+document.querySelector(".map-index").addEventListener("click", event => {
+  const link = event.target.closest("a");
+  if (link) byId(link.hash.slice(1)).open = true;
+});
+window.addEventListener("hashchange", openLinkedChapter);
+openLinkedChapter();
+
 renderContents();
 renderNotes();
 renderArchive();
