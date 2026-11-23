@@ -95,22 +95,59 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 .map-branches[hidden]{display:none}
 @media(max-width:520px){.map-chapter{padding:.55rem .6rem}.map-scroll{max-height:58vh}}
 @media print{.map-canvas-wrap{display:none}.map-branches[hidden]{display:block!important}}
+
+.cheat{background:#f9f8f0;border:2px solid var(--green)}
+.cheat-card{border:1px solid var(--line);border-radius:12px;padding:.9rem 1.1rem;background:var(--white)}
+.cheat-card h3{font-size:1.15rem;color:var(--green);margin-bottom:.6rem}
+.cheat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:.7rem;margin-top:.6rem}
+.cheat-num{background:#eef5ec;border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:.5rem .75rem;font-size:1rem;line-height:1.8}
+.cheat-num strong{color:#ad5a29}
+.cheat-formula{background:#fff7ec;border:1px solid #e8d5b0;border-radius:8px;padding:.55rem .8rem;font-family:ui-monospace,monospace;font-size:.95rem;margin:.35rem 0}
+.cheat-vs{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.5rem}
+.cheat-vs>div{padding:.55rem .75rem;border-radius:8px}
+.cheat-vs>div:first-child{background:#eef5ec}
+.cheat-vs>div:last-child{background:#f0ede5}
+.cheat-vs h4{font-size:.92rem;margin-bottom:.3rem}
+@media(max-width:520px){.cheat-vs{grid-template-columns:1fr}}
+
+.sprint-grid,.sprint-tree {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sprint-grid>div,.sprint-tree>li {border:1px solid #bbd8d1;border-radius:12px;padding:12px;background:#f1faf7}
+.sprint-hero {border-top:4px solid #168471}
+.sprint-jumps {display:flex;flex-wrap:wrap;gap:10px}
+.sprint-jumps a {display:inline-block;padding:8px 12px;background:#08685b;color:white;border-radius:8px}
+.sprint-tree {list-style:none;padding:0}
+.sprint-tree>li:first-child {background:#fff1e6;border-color:#eac5ab}
+.sprint-tree ul {list-style:none;margin:8px 0 0;padding:0 0 0 12px;border-left:2px solid #7da99e}
+.sprint-tree ul li {margin:8px 0}
+.sprint-tree small {display:block;color:#415750}
+.sprint-topic,.sprint-recall {border:1px solid #c8dbd6;border-radius:9px;background:#fff;padding:0 12px}
+.sprint-topic {margin:8px 0}
+.sprint-topic summary,.sprint-recall summary {cursor:pointer;padding:10px 0;font-weight:650}
+.sprint-cue {color:#08685b;font-weight:700}
+.sprint-recall {background:#f1faf7}
+.sprint-topic>.sprint-recall {margin-bottom:12px}
+.sprint-source {font-size:.9rem}
+#sprint-numbers .sprint-grid {grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+@media(max-width:740px){.sprint-grid,.sprint-tree,#sprint-numbers .sprint-grid {grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header><div class="wrap">
 <p>证券行业一般业务水平评价测试</p>
 <h1>证券从业 · 10 天冲刺</h1>
-<p class="subtitle">用章节思维导图过一遍考纲，读讲义弄懂生词，再做小测和整卷找漏项。</p>
+<p class="subtitle">先看四个优先专题，再默背数字，最后做题找漏项。</p>
 </div></header>
 <nav aria-label="复习导航"><div class="wrap">
-<a href="#plan">10 天计划</a><a href="#maps">章节思维导图</a><a href="#notes">考点讲义</a><a href="#practice">站内练习</a><a href="#archive">历年回忆考点</a><a href="#mock">原创模拟卷</a><a href="#sources">资料来源</a>
+<a href="#exam-brief">考试安排</a><a href="#sprint-map">重点导图</a><a href="#sprint-numbers">数字默背</a><a href="#plan">10 天计划</a><a href="#cheat">冲刺速记</a><a href="#maps">章节思维导图</a><a href="#notes">考点讲义</a><a href="#practice">站内练习</a><a href="#archive">历年回忆考点</a><a href="#mock">原创模拟卷</a><a href="#sources">资料来源</a>
 </div></nav>
 <div class="wrap layout">
 <aside class="contents" aria-labelledby="contents-title">
 <h2 id="contents-title">复习目录</h2>
+<a href="#sprint-map">考前补漏导图</a>
+<a href="#sprint-numbers">数字默背卡</a>
 <a href="#maps">章节思维导图</a>
 <a href="#plan">10 天计划</a>
+<a href="#cheat">冲刺速记（背就拿分）</a>
 <a href="#words">常见词白话对照</a>
 <div id="chapter-links"></div>
 <a href="#archive">历年回忆考点</a>
@@ -118,6 +155,166 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <a href="#practice">站内练习</a>
 </aside>
 <main>
+<section class="panel sprint-hero" id="exam-brief">
+<h2>11 月 28 日专场 · 考前冲刺</h2>
+<div class="sprint-grid">
+<div><strong>周六 13:00–15:00</strong><br>证券市场基本法律法规</div>
+<div><strong>周六 15:40–17:40</strong><br>金融市场基础知识</div>
+<div><strong>11 月 25 日 15:00 开始打印</strong><br>11 月 28 日 17:00 截止 · <a href="https://ks.sac.net.cn/sac/login/login_lb.htm">协会报名及打印入口</a></div>
+</div>
+<p>一般业务两科按 2025 版复习，法规加 2026 年纪法知识。2026 版一般业务大纲自 2027 年 1 月 1 日施行。具体场次和地点以准考证为准。</p>
+<p>闭卷机考，每科 120 题 / 120 分钟，正确率达到 60% 即达到基本要求。题型为单选、多选、判断、综合题。<a href="https://ks.sac.net.cn/sac/examMsg/showSomething.htm?kslb=1&xxlx=faq">协会考生问答</a> · <a href="https://www.sac.net.cn/pxzx/pxzdydg/">协会大纲目录</a></p>
+<div class="sprint-jumps"><a href="#sprint-map">看四个优先专题</a><a href="#sprint-numbers">做数字默背</a><a href="#mock">做整卷模拟</a></div>
+</section>
+<section class="panel" id="sprint-map"><h2>考前补漏思维导图</h2>
+<p>先顺着分支复述，再点专题看讲解。最后合上正文，答一遍每个专题的自测。</p>
+<ul class="sprint-tree"><li><strong>先学四个</strong>
+<ul><li><a href="#topic-policy">新“国九条”与 1+N</a><small>强监管 → 防风险 → 促高质量发展</small></li><li><a href="#topic-delist">退市制度</a><small>主动退出 / 强制退出 → 看原因 → 看程序</small></li><li><a href="#topic-convert">可转债</a><small>持有人转股 / 回售 → 发行人赎回</small></li><li><a href="#topic-option">期权定价</a><small>先分看涨 / 看跌 → 再判价格变化方向</small></li>
+</ul></li><li><strong>第二轮</strong>
+<ul><li><a href="#topic-discipline">纪法政策原文</a><small>全会公报 / 规划纲要 / 金融强国</small></li><li><a href="#topic-bse">北交所分层与交易</a><small>新三板基础层 / 创新层 → 北交所上市</small></li><li><a href="#topic-fund">基金业绩评价</a><small>风险调整收益 / 跟踪指数</small></li>
+</ul></li><li><strong>有余力再看</strong>
+<ul><li><a href="#topic-rating">长期信用评级</a><small>AAA → AA → A → BBB → BB → B → CCC → CC → C</small></li><li><a href="#topic-connect">沪深港通</a><small>北向买沪深 / 南向买香港</small></li>
+</ul></li>
+</ul>
+<div class="sprint-lessons">
+<details class="sprint-topic" id="topic-policy">
+<summary>新“国九条”与 1+N</summary>
+<p class="sprint-cue">强监管 → 防风险 → 促高质量发展</p>
+<p>“1”是国务院 2024 年资本市场指导性文件，“N”是监管部门和交易所的配套制度。按市场生命周期记：入口严把发行上市关，存续抓信披、减持和分红，出口严格退市。横向再记券商与公募机构监管、交易监管、中长期资金入市和投资者保护。</p>
+<details class="sprint-recall">
+<summary>首发企业现场检查主要卡哪一关？</summary>
+<p>发行上市入口。看到违规减持和现金分红则归到上市公司持续监管。</p>
+</details>
+<p class="sprint-source"><a href="https://www.nhc.gov.cn/bgt/gwywj2/202404/f62651479c364588a417e414acfc2c42.shtml">国务院意见</a> · <a href="https://www.csrc.gov.cn/csrc/c100028/c7473759/content.shtml">证监会配套政策解读</a></p>
+</details>
+<details class="sprint-topic" id="topic-delist">
+<summary>退市制度</summary>
+<p class="sprint-cue">主动退出 / 强制退出 → 看原因 → 看程序</p>
+<p>主动退市可因股东会决议、吸收合并等发生。强制退市记四类：交易类（价格、成交量等），财务类（如利润与营收组合指标、净资产），规范类（如未按期披露定期报告且逾期未改），重大违法类（如欺诈发行或达到规则标准的重大信息披露违法）。财务阈值要看板块、年份和组合条件。以上交所科创板为例，符合整理期条件时为 15 个交易日；交易类强制退市和主动退市通常不进整理期。退市风险警示、整理期和终止上市是不同阶段。</p>
+<details class="sprint-recall">
+<summary>股价触及交易类退市条件，一定还有 15 天可卖吗？</summary>
+<p>按具体交易所规则判断；科创板交易类强制退市不进入退市整理期。</p>
+</details>
+<p class="sprint-source"><a href="https://www.sse.com.cn/lawandrules/sselawsrules2025/bond/convertible/listing/c/c_20260424_10817748.shtml">上交所科创板上市规则第十二章</a> · <a href="https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf">北交所上市规则第十章</a></p>
+</details>
+<details class="sprint-topic" id="topic-convert">
+<summary>可转债</summary>
+<p class="sprint-cue">持有人转股 / 回售 → 发行人赎回</p>
+<p>可转债兼具债券属性和转股选择权。转股价格是每股折算价，理论转股股数＝用于转股的债券面值总额÷转股价，零股按条款处理。转股价值＝理论股数×正股价格。发行结束至少 6 个月后方可转股，具体起止看募集说明书。赎回是发行人按条件买回，回售是持有人按条件卖回；触发价格、累计天数、赎回价和回售价看个券条款。送转、派息等可能引起转股价调整，向下修正按约定程序执行。</p>
+<details class="sprint-recall">
+<summary>面值 1,000 元，转股价 10 元，正股 12 元，转股价值多少？</summary>
+<p>可转 100 股，转股价值 1,200 元。若题目问转股溢价率，还需知道可转债市场价格。</p>
+</details>
+<p class="sprint-source"><a href="https://www.csrc.gov.cn/csrc/c106256/c1653887/content.shtml">证监会可转债管理办法</a></p>
+</details>
+<details class="sprint-topic" id="topic-option">
+<summary>期权定价</summary>
+<p class="sprint-cue">先分看涨 / 看跌 → 再判价格变化方向</p>
+<p>其他条件相同：标的价格上升，看涨涨、看跌跌；行权价上升，看涨跌、看跌涨。标准看涨和看跌期权通常都随波动率上升而更贵。剩余期限更长一般有更多时间选择，具有相同其他条款的美式期权期限延长时价值不下降；欧式期权受利率、分红等影响，期限越长并非一律越贵。看涨内在价值＝max(标的价－行权价, 0)，看跌反过来。到期净损益还要扣掉买方付的权利金。</p>
+<details class="sprint-recall">
+<summary>标的上涨且行权价不变，看涨和看跌的价值一般怎么变？</summary>
+<p>看涨上升，看跌下降。若只有波动率上升，标准看涨和看跌通常都升。</p>
+</details>
+</details>
+<details class="sprint-topic" id="topic-discipline">
+<summary>纪法政策原文</summary>
+<p class="sprint-cue">全会公报 / 规划纲要 / 金融强国</p>
+<p>二十届三中全会公报抓进一步全面深化改革、推进中国式现代化，以及防范化解重点领域风险。十五五规划纲要（2026–2030）金融部分抓完善中央银行制度、发展多层次资本市场和健全金融监管。金融强国的六个强大记：货币、中央银行、金融机构、国际金融中心、金融监管、金融人才队伍。五篇大文章记：科技、绿色、普惠、养老、数字金融。</p>
+<details class="sprint-recall">
+<summary>科技、绿色、普惠、养老、数字，是五篇大文章还是六个强大？</summary>
+<p>是五篇大文章。六个强大按货币、央行、机构、中心、监管、人才复述。</p>
+</details>
+<p class="sprint-source"><a href="https://www.cac.gov.cn/2024-07/18/c_1722984693124164.htm">二十届三中全会公报</a> · <a href="https://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2026/2026_zt03/yw/202603/t20260314_1430877.html">十五五规划纲要</a> · <a href="https://zt.bjcc.gov.cn/rdztarticle/600485164.html">金融强国讲话</a></p>
+</details>
+<details class="sprint-topic" id="topic-bse">
+<summary>北交所分层与交易</summary>
+<p class="sprint-cue">新三板基础层 / 创新层 → 北交所上市</p>
+<p>新三板设基础层、创新层；北交所是证券交易所，历史上由精选层平移设立。北交所公开发行上市的一般路径是符合条件的创新层挂牌公司申报。竞价交易通常涨跌幅 ±30%，公开发行股票上市首日不设涨跌幅限制；竞价单笔通常 100 股起，可按 1 股递增。个人开通权限一般需申请前 20 个交易日日均资产不低于 50 万元（剔除融入资金和证券）并参与证券交易满 24 个月。</p>
+<details class="sprint-recall">
+<summary>竞价买入 101 股是否因不是整百股而无效？</summary>
+<p>可以按 1 股递增，仍需满足其他申报规则。</p>
+</details>
+<p class="sprint-source"><a href="https://www.bse.cn/jygl_list/200028217.html">北交所交易规则</a> · <a href="https://www.bse.cn/jygl_list/200018386.html">投资者适当性办法</a> · <a href="https://www.bse.cn/uploads/6/file/public/202604/20260424210610_3lvk6oirgc.pdf">北交所上市规则</a></p>
+</details>
+<details class="sprint-topic" id="topic-fund">
+<summary>基金业绩评价</summary>
+<p class="sprint-cue">风险调整收益 / 跟踪指数</p>
+<p>夏普比率＝（组合平均收益率－无风险利率）÷组合收益率标准差，衡量单位总风险获得的超额收益。特雷诺比率用 β 作分母，衡量单位系统性风险；詹森 α 比较实际收益与 CAPM 给出的应有收益。跟踪偏离看基金与基准收益差，跟踪误差通常看这组差值的标准差。计算时收益和风险指标要用一致的频率或年化口径。</p>
+<details class="sprint-recall">
+<summary>年化收益 8%、无风险收益 2%、年化波动 12%，夏普比率是多少？</summary>
+<p>(8%－2%)÷12%＝0.5。</p>
+</details>
+</details>
+<details class="sprint-topic" id="topic-rating">
+<summary>长期信用评级</summary>
+<p class="sprint-cue">AAA → AA → A → BBB → BB → B → CCC → CC → C</p>
+<p>常见国内长期债券信用等级为三等九级。AAA 偿债能力最高，C 表示不能偿还债务；从高到低反映信用风险上升。常见体系中 AA 至 B 档可用 +、− 微调，具体看评级机构的符号说明。短期债项采用另一套常见符号（如 A-1）。</p>
+<details class="sprint-recall">
+<summary>AA+ 和 AAA 哪个等级高？</summary>
+<p>AAA。修饰符只在本档内微调。</p>
+</details>
+</details>
+<details class="sprint-topic" id="topic-connect">
+<summary>沪深港通</summary>
+<p class="sprint-cue">北向买沪深 / 南向买香港</p>
+<p>北向包括沪股通、深股通，南向包括沪港通及深港通下的港股通。北向每条通道每日 520 亿元人民币，南向每条每日 420 亿元人民币。标的包括符合条件的股票和 ETF，按公告调整。举例：沪股通股票范围包括符合条件的上证 A 股指数成份股及部分 A+H 股；港股通包括符合条件的恒生综合指数成份股及部分 A+H 股。额度约束新增买单，通常不妨碍卖出。</p>
+<details class="sprint-recall">
+<summary>520 亿元是整个北向共用，还是沪深两条通道各自使用？</summary>
+<p>沪股通、深股通各自使用 520 亿元人民币的每日额度。</p>
+</details>
+<p class="sprint-source"><a href="https://www.sse.com.cn/lawandrules/sselawsrules2025/global/hkexsc/c/c_20251017_10795123.shtml">上交所沪港通规则</a> · <a href="https://big5.sse.com.cn/site/cht/www.sse.com.cn/services/hkexsc/disclo/announ/c/c_20180411_4498499.shtml">沪港通额度</a> · <a href="https://www.szse.cn/aboutus/trends/news/t20211205_590099.html">深交所深港通说明</a></p>
+</details></div>
+</section>
+
+<section class="panel" id="sprint-numbers">
+<h2>数字默背卡</h2>
+<p>第一遍只看题面，先说出数字、单位和适用条件，再展开核对。第二遍只重背答错的卡。</p>
+
+<div class="sprint-grid">
+<details class="sprint-recall">
+<summary>公开发行的人数线？容易漏掉哪类例外？</summary>
+<p>向特定对象发行累计超过 200 人，依法实施员工持股计划的员工人数不计入。向不特定对象发行本身属于公开发行。</p>
+</details>
+<details class="sprint-recall">
+<summary>代销 / 包销最多多久？代销不足几成算发行失败？</summary>
+<p>最多 90 日。股票代销期限届满，售出数量未达到拟公开发行股票数量的 70%，为发行失败。</p>
+</details>
+<details class="sprint-recall">
+<summary>有限责任公司股东人数与一般认缴期限？</summary>
+<p>1–50 人。一般自公司成立之日起 5 年内缴足，注意存量过渡规则与法定例外。</p>
+</details>
+<details class="sprint-recall">
+<summary>股份公司发起人数与住所要求？</summary>
+<p>1–200 人，其中半数以上在中国境内有住所。</p>
+</details>
+<details class="sprint-recall">
+<summary>特别决议多少票？先判断哪种公司？</summary>
+<p>至少 2/3。有限责任公司按代表表决权计算；股份有限公司按出席会议的股东所持表决权计算。</p>
+</details>
+<details class="sprint-recall">
+<summary>法定公积金的三个比例？</summary>
+<p>一般从税后利润提取 10%，累计达到注册资本 50% 时可不再提取；转增后留存不少于转增前注册资本的 25%。</p>
+</details>
+<details class="sprint-recall">
+<summary>券商四个基本风控指标下限？</summary>
+<p>风险覆盖率 ≥100%、资本杠杆率 ≥8%、流动性覆盖率 ≥100%、净稳定资金率 ≥100%。流动性覆盖率看未来 30 天现金净流出。</p>
+</details>
+<details class="sprint-recall">
+<summary>可转债何时能转？进入退市整理期通常记几天？</summary>
+<p>发行结束至少 6 个月后方可转股。上交所科创板、北交所适用退市整理期的情形记 15 个交易日。</p>
+</details>
+<details class="sprint-recall">
+<summary>北交所：个人权限、竞价涨跌幅和买入起点？</summary>
+<p>申请前 20 个交易日日均资产至少 50 万元、参与证券交易至少 24 个月。普通竞价日 ±30%，竞价申报一般 100 股起。</p>
+</details>
+<details class="sprint-recall">
+<summary>沪深港通额度：北向、南向各多少？</summary>
+<p>北向每条每日 520 亿元人民币，南向每条每日 420 亿元人民币。</p>
+</details></div>
+
+<p class="sprint-source"><a href="https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_725883cb6dda4fdf965a3d14358e279f.html">证券法</a> · <a href="https://www.gov.cn/yaowen/liebiao/202312/content_6923395.htm">公司法</a> · <a href="https://www.csrc.gov.cn/csrc/c106256/c1653957/content.shtml">证券公司风控办法</a> · <a href="#sprint-map">交易制度出处见专题</a> · <a href="#cheat">继续背公式与易混概念</a></p>
+
+</section>
 <section class="panel" id="plan">
 <h2>10 天怎么用</h2>
 <p class="intro">按两科都报、每天约 2 小时安排。先用<a href="#maps">章节思维导图</a>过主线，读不懂再展开讲义。只报一科时，把另一科的时间用于本科学习和重做错题。</p>
@@ -135,6 +332,109 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 </ol>
 <p><strong>每天只有 1 小时</strong>　20 分钟背「先拿分」，25 分钟练题，15 分钟复做昨天错题。第 7、8 天可分两段完成长卷。</p>
 <p><strong>考场的 120 分钟</strong>　建议先用约 85 分钟做有把握的题，25 分钟回看标记题，最后 10 分钟检查答题卡。先找题目要你选对还是选错。「可以」是允许，「应当」是必须做到。两科分别达到基本要求。</p>
+</section>
+
+<section class="panel cheat" id="cheat">
+<h2>冲刺速记 · 背就拿分</h2>
+<p class="intro">考前最后翻一遍数字、公式和易混概念。「可以」是允许，「应当」是必须做到。</p>
+<div class="cheat-row">
+<div class="cheat-card">
+<h3>核心数字速记</h3>
+<div class="cheat-num">
+<strong>200 人</strong>　向特定对象发行累计超过 200 人 → 公开发行（201 人触发）<br>
+<strong>1–50 人</strong>　有限公司股东人数上限<br>
+<strong>1–200 人</strong>　股份公司发起人区间，至少半数境内有住所<br>
+<strong>90 日</strong>　代销 / 包销法定最长期限<br>
+<strong>5 年</strong>　有限公司认缴出资一般自成立起 5 年内缴足<br>
+<strong>2/3</strong>　特别决议门槛（改章程、增减资、合并分立、解散）<br>
+<strong>25%</strong>　法定公积金转增后至少留转增前注册资本的 25%<br>
+<strong>120 题 / 120 分钟</strong>　每科题量和时长<br>
+<strong>60%</strong>　合格线（正确率达标，不是 60 分）
+</div>
+</div>
+<div class="cheat-card">
+<h3>券商风控四大比率</h3>
+<div class="cheat-num">
+<strong>风险覆盖率</strong>＝净资本 ÷ 风险资本准备之和<br>
+<strong>资本杠杆率</strong>＝核心净资本 ÷ 表内外资产总额（只用核心）<br>
+<strong>流动性覆盖率</strong>＝优质流动性资产 ÷ 未来 30 天现金净流出<br>
+<strong>净稳定资金率</strong>＝可用稳定资金 ÷ 所需稳定资金<br>
+<span class="muted">口诀：覆盖率用总净资本，杠杆率只用核心；两个流动性指标一个看 30 天一个看长期。</span>
+</div>
+</div>
+<div class="cheat-card">
+<h3>必背公式</h3>
+<div class="cheat-formula">份额净值 ＝（总资产 － 总负债）÷ 总份额</div>
+<div class="cheat-formula">市盈率 ＝ 股价 ÷ 每股收益</div>
+<div class="cheat-formula">市净率 ＝ 股价 ÷ 每股净资产</div>
+<div class="cheat-formula">当期收益率 ＝ 年利息 ÷ 买入价</div>
+<div class="cheat-formula">到期收益率（一年期）＝（到期本息和 ÷ 买入价）－ 1</div>
+<div class="cheat-formula">溢价率 ＝（成交价 － 参考净值）÷ 参考净值</div>
+<div class="cheat-formula">单利终值 ＝ 本金 ×（1＋利率×期数）</div>
+<div class="cheat-formula">复利终值 ＝ 本金 ×（1＋利率）^期数</div>
+</div>
+<div class="cheat-card">
+<h3>易混概念对比</h3>
+<div class="cheat-vs"><div><h4>代销</h4>卖不完退回发行人</div><div><h4>余额包销</h4>卖不完券商买下剩余</div></div>
+<div class="cheat-vs"><div><h4>全额包销</h4>先买全部再卖</div><div><h4>保荐</h4>推荐＋核查＋督导</div></div>
+<div class="cheat-vs"><div><h4>正回购</h4>拿钱（融入资金）</div><div><h4>逆回购</h4>出钱（融出资金）</div></div>
+<div class="cheat-vs"><div><h4>融资</h4>借钱买证券，还钱</div><div><h4>融券</h4>借券卖出，还券</div></div>
+<div class="cheat-vs"><div><h4>看涨期权</h4>买入标的的权利，可放弃</div><div><h4>看跌期权</h4>卖出标的的权利，可放弃</div></div>
+<div class="cheat-vs"><div><h4>送股</h4>利润转股本</div><div><h4>转增</h4>资本公积转股本</div></div>
+<div class="cheat-vs"><div><h4>系统性风险</h4>市场共同波动，不可分散</div><div><h4>非系统性风险</h4>单家公司因素，可分散</div></div>
+<div class="cheat-vs"><div><h4>一级市场</h4>新证券首次发行</div><div><h4>二级市场</h4>已发行证券转手</div></div>
+</div>
+</div>
+<p class="intro" style="margin-top:1rem">以下内容也是高频考点，考前再过一遍：</p>
+<div class="cheat-row">
+<div class="cheat-card">
+<h3>纪法政策关键词配对</h3>
+<div class="cheat-num">
+<strong>新「国九条」</strong>　2024 年国务院发布，资本市场纲领性文件，强调严监管、防风险、高质量<br>
+<strong>「1+N」体系</strong>　以国九条为「1」，配套多项具体规则为「N」<br>
+<strong>五篇大文章</strong>　科技金融、绿色金融、普惠金融、养老金融、数字金融<br>
+<strong>退市制度</strong>　交易类、财务类、规范类、重大违法类<br>
+<strong>注册制</strong>　以信息披露为核心，交易所审核、证监会注册<br>
+<strong>欺诈发行回购</strong>　发行欺诈可责令回购证券<br>
+<strong>高水平社会主义市场经济体制</strong>　中国式现代化的重要保障<br>
+<strong>行业文化</strong>　合规、诚信、专业、稳健
+</div>
+</div>
+<div class="cheat-card">
+<h3>可转换债券要素</h3>
+<div class="cheat-num">
+<strong>转股价</strong>　约定将债券转为股票的价格<br>
+<strong>转换比例</strong>＝面值 ÷ 转股价<br>
+<strong>赎回条款</strong>　股价持续高于转股价一定比例，发行人可提前赎回（发行人权利）<br>
+<strong>回售条款</strong>　股价持续低于转股价一定比例，投资者可卖回（投资者权利）<br>
+<strong>可交换债</strong>　交换发行人持有的其他公司股份，不是自身股票<br>
+<strong>信用评级</strong>　AAA > AA > A > BBB > BB > B > CCC > CC > C
+</div>
+</div>
+<div class="cheat-card">
+<h3>期权价格六大影响因素</h3>
+<div class="cheat-num">
+<strong>① 标的价格 ↑</strong>　看涨 ↑ / 看跌 ↓<br>
+<strong>② 行权价</strong>　看涨：行权价 ↓ → 价值 ↑；看跌：行权价 ↑ → 价值 ↑<br>
+<strong>③ 剩余期限 ↑</strong>　通常 ↑（时间价值递减，到期归零）<br>
+<strong>④ 波动率 ↑</strong>　通常 ↑（看涨看跌都涨）<br>
+<strong>⑤ 无风险利率 ↑</strong>　看涨 ↑ / 看跌 ↓<br>
+<strong>⑥ 股息 ↑</strong>　看跌 ↑ / 看涨 ↓
+</div>
+</div>
+<div class="cheat-card">
+<h3>违法与合规速记</h3>
+<div class="cheat-num">
+<strong>内幕交易</strong>　利用重大未公开信息交易<br>
+<strong>操纵市场</strong>　虚假成交影响价量<br>
+<strong>账户出借</strong>　违规借出/借用账户（同意也不行）<br>
+<strong>损害客户利益</strong>　未经授权动客户账户<br>
+<strong>利益冲突</strong>　私人利益影响客观判断<br>
+<strong>市场禁入</strong>　由证监会依法采取（不是协会或交易所）<br>
+<strong>合规制度</strong>　董事会审议；三道防线：一线双人→部门制衡→独立监督
+</div>
+</div>
+</div>
 </section>
 
 <section class="panel" id="maps">
@@ -198,6 +498,8 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><strong>货币乘数</strong>　用来描述货币供应量与基础货币的比例。只考虑法定准备金的简化题里，准备金率 10%，存款乘数为 1÷10%＝10；现实还受现金持有和超额准备金影响。</li>
 <li><strong>货币政策传导</strong>　政策先影响银行体系的资金条件和融资成本，再可能影响企业投资和居民消费。题目常让你辨认中间环节。</li>
 <li><strong>央行资产负债表怎么看</strong>　央行持有的外汇储备和对金融机构的债权属于资产；发行在外的货币及金融机构在央行的存款等属于负债。银行把准备金存到央行，这笔钱是银行的资产，同时是央行的负债。</li>
+<li><strong>新「国九条」与「1+N」政策体系</strong>　2024 年新「国九条」是资本市场纲领性文件，强调严把发行准入关、严格退市标准、强化投资者保护。「1+N」指以国九条为统领、配套多项具体规则。看到「强监管、防风险、促高质量发展」想到新国九条主线。</li>
+<li><strong>金融「五篇大文章」</strong>　科技金融、绿色金融、普惠金融、养老金融、数字金融。题目问金融服务实体经济重点方向时，先认这五项名称。</li>
 </ul>
 </div></li>
 <li><div class="map-node"><h4>中国的多层次资本市场</h4><p>主板典型是成熟大型企业，科创板突出科技创新，创业板侧重成长型创新创业企业。北交所侧重创新型中小企业，全国股转系统就是常说的新三板。区域性股权市场服务本地中小微企业。</p>
@@ -207,7 +509,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><strong>场内市场和场外市场</strong>　在交易所按统一规则集中交易，属于典型场内。柜台市场和区域性股权市场常归入场外。题目如果问一级市场，仍要回到证券是不是新发的。</li>
 </ul>
 </div></li>
-</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>央行资产负债表和传导机制的细节、资本市场对外开放、新「国九条」和「1+N」政策体系。</p></details>
+</ul><p class="map-lesson-links">补充专题　<a href="#topic-policy">新“国九条”与 1+N</a></p><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>央行资产负债表和传导机制的细节、资本市场对外开放。</p></details>
 <div class="map-check"><strong>合上图想一想</strong><p>央行在公开市场卖出债券，银行体系通常更有钱还是更少钱？</p><details><summary>核对答案</summary><p>买方付款给央行，通常回笼流动性。</p></details></div></details>
 <details class="map-chapter" id="map-f3">
 <summary class="map-root">第三章 证券市场主体</summary>
@@ -256,6 +558,8 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 
 <ul class="map-extra-points">
 <li><strong>审批制、核准制和注册制</strong>　备考先记三者的关注点：审批制行政色彩较强，核准制由监管部门依规定对发行条件作实质审查，注册制以信息披露为核心并依法审核注册，仍有发行和上市条件。</li>
+<li><strong>退市制度四类</strong>　交易类退市看成交量、股价、市值等持续低于标准；财务类退市看连续亏损、净资产为负、营收不达标、审计意见不合格等；规范类退市看重大信息披露违规、运作重大缺陷等；重大违法类退市看欺诈发行、重大信息披露违法等。退市后可进入退市整理期，之后转全国股转系统。题目先认类别再看条件。</li>
+<li><strong>欺诈发行回购</strong>　发行人在招股说明书等文件中隐瞒重要事实或编造重大虚假内容，可被责令回购已发行的证券，向投资者返还募集资金及利息。这是注册制下以信息披露为核心的配套追责机制。</li>
 </ul>
 </div></li>
 <li><div class="map-node"><h4>股票交易</h4><p>连续竞价先比价格、同价再比时间。集合竞价把一段时间的申报集中撮合。委托是你发出的买卖指令，成交后还要按规则结算与交收。</p>
@@ -273,7 +577,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><strong>绝对估值与相对估值</strong>　把预期股利等未来款折到今天，是绝对估值；拿市盈率、市净率等与同类公司比较，是相对估值。</li>
 </ul>
 </div></li>
-</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>IPO 发行定价与配售细则、北交所发行、欺诈发行回购、退市条件、交易费用、跨境互联互通和指数编制步骤。</p></details>
+</ul><p class="map-lesson-links">补充专题　<a href="#topic-delist">退市制度</a> · <a href="#topic-bse">北交所分层与交易</a> · <a href="#topic-connect">沪深港通</a></p><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>IPO 发行定价与配售、北交所具体发行条件、交易费用和指数编制步骤。</p></details>
 <div class="map-check"><strong>合上图想一想</strong><p>一份股票证明你已经享有股东权利，考“要式”还是“证权”？</p><details><summary>核对答案</summary><p>证权。“要式”问形式和记载事项，“证权”问证券与权利的关系。</p></details></div></details>
 <details class="map-chapter" id="map-f5">
 <summary class="map-root">第五章 债券</summary>
@@ -284,6 +588,9 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <ul class="map-extra-points">
 <li><strong>可转换债与可交换债</strong>　两者都先是一张债券。可转换债按约转为发行人自己的股票；可交换债可按条款交换为发行人持有的其他公司的股份。</li>
 <li><strong>储蓄国债与记账式国债</strong>　个人买储蓄国债常见凭证式和电子式，一般不上市流通，可按规则提前兑取。可上市流通的记账式国债能在二级市场转手，卖出价随行情变动。</li>
+<li><strong>可转换债券核心要素</strong>　转股价是约定把债券换成股票的价格；转换比例＝面值 ÷ 转股价。转换期是可转股的时间段。赎回条款让发行人在股价持续高于转股价一定比例时有权提前赎回；回售条款让投资者在股价持续低于转股价一定比例时有权卖回。先分清「谁有权」。</li>
+<li><strong>可交换债与可转换债</strong>　可转换债转成发行人自己的股票；可交换债交换的是发行人持有的其他公司股份。两者都先是一张债券，区别在换成谁家的股票。</li>
+<li><strong>信用评级分级</strong>　长期债常用 AAA、AA、A、BBB、BB、B、CCC、CC、C 九级，各可加「+」或「-」微调。AAA 最高，AA 比 A 高。投资级一般指 BBB 及以上，投机级为 BB 及以下。题目还可能分别问发行人主体评级和某只债券的债项评级。</li>
 </ul>
 </div></li>
 <li><div class="map-node"><h4>债券发行</h4><p>新债发行把钱筹给发行人。国债、金融债、公司债和债务融资工具各有市场与发行安排。记住可转换债允许按条款转换成股票。</p>
@@ -306,7 +613,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><strong>债券价格受哪些因素影响</strong>　两张债的现金流相同，市场要求的收益率上升会压低价格；如果是某家发行人的还款能力变差，投资者也可能要求更高回报。先分清是市场利率变了，还是信用风险增加。</li>
 </ul>
 </div></li>
-</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>各类债券的发行、承销、交易及转托管细则，信用评级的完整分级与流程，可转换债要素，利率期限结构理论。</p></details>
+</ul><p class="map-lesson-links">补充专题　<a href="#topic-convert">可转债</a> · <a href="#topic-rating">长期信用评级</a></p><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>各类债券的发行、承销、交易及转托管细则，信用评级流程，利率期限结构理论。</p></details>
 <div class="map-check"><strong>合上图想一想</strong><p>年利息 5 元，面值 100 元，买价 80 元，当期收益率是多少？</p><details><summary>核对答案</summary><p>5÷80＝6.25%。面值作分母算出来的是票面利率。</p></details></div></details>
 <details class="map-chapter" id="map-f6">
 <summary class="map-root">第六章 证券投资基金</summary>
@@ -349,7 +656,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><strong>基础设施公募 REITs 怎么退出</strong>　这类基金通常封闭运作，份额可在交易所上市交易。持有者想退出时，可按规则转让上市份额；分配和价格会受到项目运营、租金或收费等影响。</li>
 </ul>
 </div></li>
-</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>基金费用计提标准和税收细则、各类基金分配规则差异、业绩评价指标、公募 REITs 申请与发行交易规定。</p></details>
+</ul><p class="map-lesson-links">补充专题　<a href="#topic-fund">基金业绩评价</a></p><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>基金费用计提标准和税收细则、各类基金分配规则差异、公募 REITs 申请与发行交易规定。</p></details>
 <div class="map-check"><strong>合上图想一想</strong><p>在交易所卖出 ETF，有人接手 100 份，基金总份数因此减少吗？</p><details><summary>核对答案</summary><p>不会。100 份换了持有人；赎回交回基金时，总份数通常减少。</p></details></div></details>
 <details class="map-chapter" id="map-f7">
 <summary class="map-root">第七章 金融衍生品</summary>
@@ -367,6 +674,8 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <ul class="map-extra-points">
 <li><strong>认购期权与认沽期权</strong>　认购是按约买入标的的权利，也叫看涨；认沽是按约卖出标的的权利，也叫看跌。权利金是为获得权利先付的费用。</li>
 <li><strong>期权价格受什么影响</strong>　先比较标的价格和行权价，看现在行权是否划算；剩余期限、预期波动和利率等也会影响权利金。其他条件相同，波动更大通常有利于期权价值。</li>
+<li><strong>期权价格六大影响因素</strong>　①标的价格：涨则看涨价值升、看跌降；②行权价：看涨行权价越低价值越高，看跌相反；③剩余期限：越长通常价值越高，时间价值随到期递减；④波动率：越大越有利（看涨看跌都升）；⑤无风险利率：上升通常利于看涨、不利于看跌；⑥标的资产股息：分红除权使股价下降，看跌价值升、看涨价值降。考试最常考前两项和波动率。</li>
+<li><strong>内在价值与时间价值</strong>　期权价值＝内在价值＋时间价值。内在价值是立即行权能拿到多少（看涨＝市价－行权价，看跌＝行权价－市价，负数按零算）。时间价值是还没到期、价格还可能变动的那部分价值。到期时时间价值归零。</li>
 </ul>
 </div></li>
 <li><div class="map-node"><h4>远期与互换交易</h4><p>远期通常是双方自订条款，约好未来买卖。利率互换常是一边按固定利率算、一边按浮动利率算，再按约交换资金流，名义本金用来计息。</p>
@@ -378,7 +687,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><strong>信用违约互换（CDS）</strong>　保护买方付费，约定信用事件发生时由保护卖方按合同补偿。先找谁在付保护费、谁承担约定的信用损失。</li>
 </ul>
 </div></li>
-</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>各种合约市场的品种与特点、期权价格影响因素、信用衍生品和结构化产品的详细收益条件。</p></details>
+</ul><p class="map-lesson-links">补充专题　<a href="#topic-option">期权定价</a></p><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>各种合约市场的品种与特点、信用衍生品和结构化产品的详细收益条件。</p></details>
 <div class="map-check"><strong>合上图想一想</strong><p>付了权利金后，可以按约定价买，也可以放弃，这是什么？</p><details><summary>核对答案</summary><p>看涨期权。买方取得的是买入权，是否行权由买方按规则决定。</p></details></div></details>
 <details class="map-chapter" id="map-f8">
 <summary class="map-root">第八章 金融风险管理</summary>
@@ -469,7 +778,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><div class="map-node"><h4>私募投资基金监督管理条例</h4><p>非公开向合格投资者募集，区分管理人登记与基金备案。看财产独立、风险匹配、人员专业化和信息披露等要求。</p>
 <p class="map-lesson-links">展开讲义　<a href="#lesson-42">私募基金、合格投资者和专业化管理</a></p>
 </div></li>
-</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>上市公司收购和权益变动的精确期限、公司股权转让、各项监管/风险处置措施的条件、私募投资层级与禁止行为。</p></details>
+</ul><p class="map-lesson-links">补充专题　<a href="#topic-delist">退市制度</a></p><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>上市公司收购和权益变动的精确期限、公司股权转让、各项监管/风险处置措施的条件、私募投资层级与禁止行为。</p></details>
 <div class="map-check"><strong>合上图想一想</strong><p>向不特定对象发行，最后只有 20 人认购，算公开发行吗？</p><details><summary>核对答案</summary><p>算。面向不特定对象本身就是一项公开发行条件。</p></details></div></details>
 <details class="map-chapter" id="map-l2">
 <summary class="map-root">第二章 证券经营机构管理规范</summary>
@@ -630,7 +939,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 <li><strong>党纪、政务处分与刑责</strong>　先认主体和行为。党员身份可能涉及党纪，公职身份可能涉及政务处分，是否构成犯罪按刑法另行判断。</li>
 </ul>
 </div></li>
-</ul><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>政策表述需逐项核对原文；党纪处分、问责、政务处分与刑事责任的法定条件和程序，以及大纲仅限高管的考点。</p></details>
+</ul><p class="map-lesson-links">补充专题　<a href="#topic-policy">新“国九条”与 1+N</a> · <a href="#topic-discipline">纪法政策原文</a></p><details class="map-coverage"><summary>本章还要对照大纲补什么</summary><p>党纪处分、问责、政务处分与刑事责任的法定条件和程序，以及大纲仅限高管的考点。</p></details>
 <div class="map-check"><strong>合上图想一想</strong><p>题干给出党员、公职人员、证券从业人员，先判断什么？</p><details><summary>核对答案</summary><p>先认题干对应的主体和行为，再找党纪、政务处分、法律责任或行业规范；同一件事可能同时涉及多类规则。</p></details></div></details>
 </div>
 <p class="foot muted"><a href="https://tftax.com/upload/cjsw/202511/biras8402c38/biras8402c38.pdf">2025 版一般业务测试大纲全文</a> · <a href="https://www.sac.net.cn/pxzx/pxzdydg/202606/t20260626_81842.html">2026 年纪法大纲发布公告及附件</a></p>
@@ -698,7 +1007,7 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 
 <section class="panel" id="mock">
 <h2>原创 120 题模拟卷</h2>
-<p>金融基础和法规各一套。每套 120 分钟，40 道单选每题 0.5 分，40 道多选、30 道判断、10 道案例小题每题 1 分。这个题型配比参照 2026 年 9 月公开考情，用于本站模考计分。</p>
+<p>金融基础和法规各一套。每套 120 分钟，40 道单选每题 0.5 分，40 道多选、30 道判断、10 道案例小题每题 1 分。案例小题采用案例单选。题量分配和计分用于本站练习，协会公开问答仅列出四类题型和总题量。做案例时先圈出主体、时间和触发条件，再逐项判断。<a href="https://ks.sac.net.cn/sac/examMsg/showSomething.htm?kslb=1&xxlx=faq">协会考生问答</a>。</p>
 <div class="controls" id="mock-actions"></div>
 </section>
 
@@ -726,6 +1035,13 @@ details{margin-top:.7rem} summary{cursor:pointer;color:var(--green);font-weight:
 </main>
 </div>
 <script>
+function openSprintTopic() {
+  const topic = document.getElementById(location.hash.slice(1));
+  if (topic?.matches("details.sprint-topic")) topic.open = true;
+}
+window.addEventListener("hashchange", openSprintTopic);
+openSprintTopic();
+
 "use strict";
 // 科目、优先级、主题、标题、结论、例子、易错项、要点、例题、解析和考法。
 const notes = [
@@ -771,7 +1087,11 @@ const notes = [
 ["L", "B", "题库补充", "期货保证金与当日无负债结算", "保证金是履约用的资金，期货每个交易日按结算价算盈亏并划转款项，叫当日无负债结算。", "今天的期货持仓按结算价算出亏 1,000 元，结算时会从账户扣除相应款项。即使还未平仓，也要算今天的盈亏。", "当日结算不等于每天把合约卖掉，也不等于交易没有损失。", ["结算价是交易所按规则用于结算的价格。平仓是结束手里的期货头寸。", "每个交易日结束后依规结算合约盈亏、保证金和手续费。保证金不足时按规则处理。"], "期货还没到期，交易所每日核算并划转盈亏，这是什么制度？", "当日无负债结算。题眼是每天按结算价算清当天有关款项。", "给出期货交易按当天结算价计算盈亏并划款的描述，让你选出结算制度。"],
 ["L", "B", "题库补充", "证券市场禁入与行业自律", "正式的证券市场禁入措施由证监会依法采取，协会和交易所按各自规则实施自律管理。", "题目把证监会、协会、券商营业部和存管银行放在一组选项里，看到「依法采取证券市场禁入」就找证监会。", "限制从业或交易的具体范围、期限，按适用规定和决定判断。", ["证券市场禁入针对依法认定的相关情形，可能涉及从事证券业务、担任有关职务或进行证券交易。", "行业自律是协会、交易所等依规则管理成员和参与者，常见考法是把它跟行政监管主体混在同组。"], "培训机构声称自己能依法决定对某人采取证券市场禁入，这个说法对吗？", "错。正式市场禁入由中国证监会依法决定。", "问严重证券违法时谁能依法采取证券市场禁入，或区分行政监管和行业自律。"],
 ["L", "B", "题库补充", "私募基金、合格投资者和专业化管理", "私募向合格投资者非公开募集，管理人要配备与投资管理、风控和合规职责相匹配的有经验人员。", "私募基金管理人把认购广告向不特定公众随意公开投放。即使广告里写了「风险自负」，也要检查它是否违反非公开募集要求。", "管理人登记、基金备案是不同对象。完成这些手续也不代表监管方给基金收益背书。", ["合格投资者＝满足适用条件、具有相应识别和承担风险能力的投资者。考试问具体金额时看题干对应规则。", "专业化管理＝让具有相应从业经历的高级管理人员负责投资管理、风险控制、合规等工作。"], "私募合规负责人最应有与职责对应的从业经历，还是向投资者保证收益的能力？", "选与职责对应的从业经历。专业化管理看人员经验与职责匹配。", "问私募向谁募集、能否向社会公开宣传，或问投资、风控、合规负责人要有什么经历。"],
-["L", "B", "题库补充", "董事会审议合规制度与三道业务监控防线", "合规基本制度经董事会审议；三道业务监控防线按一线岗位、岗位部门制衡、独立监督来分。", "与资金直接接触的重要岗位由两人负责，是第一道；不同岗位相互复核，是第二道；独立部门抽查并反馈，是第三道。", "董事会审议基本制度，员工仍要对自己办的业务负责。", ["第一道侧重重要一线岗位双人、双职、双责。第二道侧重岗位和部门之间的制衡。", "第三道是独立监督检查部门开展监控、检查和反馈。题干出现「独立检查」时先想到第三道。"], "券商安排独立部门到营业部检查过往经纪业务并反馈问题，属于第几道？", "第三道。重点是检查部门独立于经办业务。", "问谁审议合规管理基本制度，或给岗位双人、部门互查、独立检查，让你辨认第几道业务监控防线。"]
+["L", "B", "题库补充", "董事会审议合规制度与三道业务监控防线", "合规基本制度经董事会审议；三道业务监控防线按一线岗位、岗位部门制衡、独立监督来分。", "与资金直接接触的重要岗位由两人负责，是第一道；不同岗位相互复核，是第二道；独立部门抽查并反馈，是第三道。", "董事会审议基本制度，员工仍要对自己办的业务负责。", ["第一道侧重重要一线岗位双人、双职、双责。第二道侧重岗位和部门之间的制衡。", "第三道是独立监督检查部门开展监控、检查和反馈。题干出现「独立检查」时先想到第三道。"], "券商安排独立部门到营业部检查过往经纪业务并反馈问题，属于第几道？", "第三道。重点是检查部门独立于经办业务。", "问谁审议合规管理基本制度，或给岗位双人、部门互查、独立检查，让你辨认第几道业务监控防线。"],
+["F", "A", "政策与体系", "新国九条与配套政策体系","2024 年新「国九条」是资本市场纲领性文件，强调严把发行准入关、严格退市标准、强化投资者保护。「1+N」指以国九条为统领、配套多项具体规则。","题目说「强监管、防风险、促高质量发展」，先想到新国九条。说科技、绿色、普惠、养老、数字金融，先想到五篇大文章。","「1+N」的「N」是配套规则，不是 N 个市场。五篇大文章名称要记全，不能只选几个。",["新「国九条」强调资本市场的人民性，重点是发行、退市、分红、投资者保护等制度完善。","五篇大文章＝科技金融、绿色金融、普惠金融、养老金融、数字金融。"],"题目提到资本市场要以信息披露为核心强化监管，同时提到要写好五篇大文章。这两项分别对应什么？","前者对应注册制改革和新「国九条」主线，后者对应金融服务的五个重点方向。两者都是当前政策体系的重要组成。","给你「强监管、防风险、促高质量发展」或列出科技、绿色、普惠、养老、数字金融，让你认出对应政策名称。"],
+["F", "A", "股票", "退市制度与条件","退市分交易类、财务类、规范类和重大违法类四类，先认类别再看条件。交易类看成交量、股价、市值；财务类看亏损和净资产；规范类看信息披露和运作；重大违法类看欺诈发行和重大违法。退市后可进入退市整理期，之后转全国股转系统。","一家公司连续多年亏损且净资产为负，按财务类退市判断。一家公司欺诈发行被发现，按重大违法类退市判断。","退市不等于破产。四类退市的条件不要混，先认题干说的是哪类指标。",["交易类退市：成交量、收盘价、市值等持续低于规定标准。","财务类退市：连续亏损、净资产为负、营业收入过低、审计意见类型等。","规范类退市：重大信息披露违规、公司运作存在重大缺陷等。","重大违法类退市：欺诈发行、重大信息披露违法等。"],"某公司被查出在招股说明书中编造重大虚假内容。这最可能触发哪类退市？","重大违法类退市。欺诈发行属于重大违法，是注册制下严格退市标准的体现。","给你连续亏损、成交量过低、信息披露违规、欺诈发行等情境，让你选出对应的退市类别。"],
+["F", "B", "债券", "可转换债券要素","可转换债有转股价、转换期、赎回条款和回售条款等要素。赎回是发行人的权利，回售是投资者的权利。先分清谁有权再做判断。","股价持续高于转股价一定比例，发行人可按约定赎回债券。股价持续低于转股价一定比例，投资者可把债券卖回给发行人。","赎回是发行人主动，回售是投资者主动。可交换债交换的不是发行人自己的股票。",["转股价＝约定将债券转为股票的价格。转换比例＝面值 ÷ 转股价。","赎回条款＝股价持续高于转股价一定比例时，发行人有权提前赎回债券。","回售条款＝股价持续低于转股价一定比例时，投资者有权把债券卖回给发行人。"],"某可转债约定股价持续高于转股价 130% 时发行人可赎回。这个条款保护谁？","保护发行人。赎回是发行人的权利，让发行人在股价大幅高于转股价时可以提前结束债务。","给你赎回条款或回售条款的描述，判断是谁的权利，或问可转换债和可交换债的区别。"],
+["F", "B", "衍生工具", "期权价格的六大影响因素","期权价格受标的价格、行权价、剩余期限、波动率、无风险利率和股息六个因素影响。标的价格涨则看涨升看跌降，波动率涨则看涨看跌都升。","其他条件不变，标的股票从 10 元涨到 12 元，看涨期权价值上升、看跌下降。波动率突然增大，看涨和看跌的价值通常都会上升。","时间价值随到期日临近递减，到期时归零。股息使股价除权下降，有利于看跌、不利于看涨。",["标的价格：涨→看涨升看跌降。行权价：看涨行权价越低价值越高，看跌相反。","剩余期限：越长通常价值越高。波动率：越大越有利于期权价值（看涨看跌都升）。","无风险利率：上升通常利于看涨、不利于看跌。股息：分红除权使股价下降，看跌升看跌降。"],"其他条件不变，标的股票预期波动率突然增大，看涨和看跌期权价值怎么变？","通常都上升。波动率增大意味着标的可能涨更多或跌更多，看涨和看跌的潜在收益都增加，所以期权价值通常都上升。","给你一个因素变化（如标的价格涨、波动率增、剩余期限缩短），问看涨和看跌期权价值分别怎么变。"]
 ];
 const stockBasics = [
 ["F", "A", "股票", "股票的性质：一张股票代表什么", "一道题可以同时说股票是有价、要式、证权、资本和综合权利证券；看到「证明已有股东权利」就选证权证券。", "你买入一家公司的股票，登记后股票凭证说明你持有多少股份，凭这份股份可以按规则领股息、投票。", "「证权证券」是证明权利。题目若说在证券上记载才创设权利，这句话对股票通常判错。", ["有价证券：它代表有财产价值的权利。你手里的股票代表一份公司的股份。", "要式证券：股票的形式和记载事项要符合法律要求，可以依法采用电子等形式。", "证权证券：证明持有人享有股东权利。「证」就是证明。", "资本证券：它代表投入公司的资本，可以让持有人获得投资收益。", "综合权利证券：一份股份可同时带来分红、表决、分配剩余财产等股东权利。"], "题目说「股票是证明股东已有权利的凭证」。它考的是要式证券还是证权证券？", "证权证券。题目问凭证和股东权利的关系。「要式」问的是形式和记载有没有法定要求。", "给一句描述，让你选对应的性质，例如「证明已有的股东权利」对应哪个词，或者将「证权」和「设权」放在一起判断正误。"],
